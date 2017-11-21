@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/20 12:52:12 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/21 11:26:48 by jmeier           ###   ########.fr       */
+/*   Created: 2017/11/08 14:48:22 by jmeier            #+#    #+#             */
+/*   Updated: 2017/11/08 19:47:19 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putnbr_fd(int n, int fd)
+void	*ft_realloc(void *ptr, size_t size, size_t new_size)
 {
-	if (n < 0)
+	void	*new;
+
+	C_ASSERT(ptr);
+	if (!(new = ft_memalloc(size)))
 	{
-		ft_putchar_fd('-', fd);
-		n = -n;
+		free(ptr);
+		return (NULL);
 	}
-	if (n == -2147483648)
-	{
-		ft_putchar_fd('2', fd);
-		n %= 1000000000;
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	ft_memcpy(new, ptr, size < new_size ? size : new_size);
+	free(ptr);
+	return (new);
 }

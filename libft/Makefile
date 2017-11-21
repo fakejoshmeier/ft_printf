@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 21:04:05 by jmeier            #+#    #+#              #
-#    Updated: 2017/10/29 19:49:48 by jmeier           ###   ########.fr        #
+#    Updated: 2017/11/21 11:44:02 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,14 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_strstr.c \
 		ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c \
 		ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strsub.c \
 		ft_strtrim.c ft_tolower.c ft_toupper.c ft_isspace.c ft_sqrt.c \
-		ft_lstnodecheck.c get_next_line.c
+		ft_lstnodecheck.c get_next_line.c ft_free.c ft_realloc.c \
+		ft_putnbr_base ft_putnbr_base_fd
 HEADER = libft.h
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME):
 		gcc -c -Wall -Werror -Wextra $(SRC) $(HEADER)
 		ar rcs $(NAME) $(OBJ)
 
