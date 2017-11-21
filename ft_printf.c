@@ -6,57 +6,30 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/08 14:59:15 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/20 16:32:02 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		parse_commands(char *str, int i)
-{
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-	if (str[i + 1] == 'd')
-		MACRO;
-}
-
-
-
 int		ft_printf(const char *format, ...)
 {
-	va_list	ap;
-	char	*str;
+	va_list	arg;
 	int		i;
 //	int		;
 
 	ASSERT(format);
-	va_start(ap, format);
-	str = (char *)format;
-	if (!(ft_strchr(str, '%')))
-		ft_putstr(str);
+	va_start(arg, format);
+	if (!(ft_strchr(format, '%')))
+		ft_putstr((char *)format);
 	i = -1;
-	while (str && str[++i] != '%')
+	while (format[++i])
 	{
-		ft_putchar(str[i]);
-		if (str[i] == '%')
-		{
-			ASSERT(str[i + 1] != '%');
-			ASSERT(parse_commands(str, i));
-		}
+		if (format[i] == '%')
+			parse_flags(format, &i, arg);
+		else
+			ft_putchar(format[i]);
 	}
-	va_end(ap);
+	va_end(arg);
+	return (1);
 }
