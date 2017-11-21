@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:49:05 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/20 18:40:51 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/21 08:11:59 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /*
 ** Credit to mlu for helping me with this and showing me the light that is
 ** ternary operators.  Holy shit, do they make this clusterfuck compact.
+** Basically, this works by parsing the arguments, running under the assumption
+** that there are indeed arguments to parse, and casts the arguments 
+** accordingly.  Need to make a printer for all the good casting that 
+** I'm doing.  Oh shit, I gotta call this the casting couch or something 
+** equally horrid.
 */
 
 void	parse_hflag(va_list arg, int *i, char *str)
@@ -39,8 +44,8 @@ void	parse_hhflag(va_list arg, int *i, char *str)
 	str[*i] == 'u' ? hh_uint_cast(arg) : 0;
 }
 
-void	parse_prec_flags(char *str, int *i, va_list arg)
-{
+//void	parse_prec_flags(char *str, int *i, va_list arg)
+//{
 //	str[*i] == '-' ? just_l : 0;
 //	str[*i] == '0' ? just_l : 0;
 //	str[*i] == '+' ? just_l : 0;
@@ -50,7 +55,7 @@ void	parse_prec_flags(char *str, int *i, va_list arg)
 //	str[*i] == 'z' ? just_l : 0;
 //	str[*i] == 'O' ? just_l : 0;
 //	str[*i] == ''' ? just_l : 0;
-}
+//}
 
 void	parse_flags(char *str, int *i, va_list arg)
 {
@@ -70,12 +75,10 @@ void	parse_flags(char *str, int *i, va_list arg)
 //	str[*i] == 'g' ? dub_cast(arg) : 0;
 //	str[*i] == 'G' ? dub_cast(arg) : 0;
 //	str[*i] == 'n' ? int_cast(arg) : 0; Figure this one out later.
-//	str[*i] == 'j' ? parse_hflags(arg, i , str) : 0;
 //	str[*i] == 't' ? parse_hflags(arg, i , str) : 0;
-//	str[*i] == 'z' ? parse_hflags(arg, i , str) : 0;
 	(str[*i] == 'h' && str[*i + 1] != 'h') ? parse_hflag(arg, i , str) : 0;
 	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i , str) : 0;
 	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i , str) : 0;
 	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i , str) : 0;
-	parse_prec_flags(str, &i, arg);
+//	parse_prec_flags(str, &i, arg);
 }
