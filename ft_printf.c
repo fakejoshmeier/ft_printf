@@ -23,14 +23,14 @@
 
 //void	parse_prec_flags(char *str, int *i, va_list arg)
 //{
-//str[*i] ==		 '-' ? just_l : 0;
+//str[*i] == '-' ? just_l : 0;
 //str[*i] == '0' ? just_l : 0;
-//str[*i] == '+' ?		just_l : 0;
+//str[*i] == '+' ? just_l : 0;
 //str[*i] == '#' ? just_l : 0;
 //str[*i] == ' ' ? 
-//str			[*i] == 'j' ? just_l : 0;
+//str[*i] == 'j' ? just_l : 0;
 //str[*i] == 'z' ? just_l : 0;
-//str[*i] ==		 'O' ? just_l : 0;
+//str[*i] == 'O' ? just_l : 0;
 //str[*i] == ''' ? just_l : 0;
 //}
 
@@ -47,8 +47,8 @@ nt{
 	str[*i] == 's' ? str_cast(arg) : 0;
 	str[*i] == '%' ? ft_putchar('%') : 0;
 	//str[*i] == 'f' ? dub_cast(arg) : 0;
-	//s		tr[*i] == 'e' ? dub_cast(arg) : 0;
-	//str[*i] == 'E' ? dub_cast(arg) :	0;
+	//str[*i] == 'e' ? dub_cast(arg) : 0;
+	//str[*i] == 'E' ? dub_cast(arg) : 0;
 	//str[*i] == 'g' ? dub_cast(arg) : 0;
 	//str[*i] == 'G' ? dub_cast(arg) : 0;
 	//str[*i] == 'n' ? int_cast(arg) : 0; Figure this one out later.
@@ -63,20 +63,23 @@ nt{
 int		ft_printf(const char *format, ...)
 {
 	va_list	arg;
-	int		i;
+	int		pos;
 //	int		;
 
 	ASSERT(format);
 	va_start(arg, format);
 	if (!(ft_strchr(format, '%')))
-		ft_putstr((char *)format);
-	i = -1;
-	while (format[++i])
 	{
-		if (format[i] == '%')
-			parse_flags(format, &i, arg);
+		ft_putstr((char *)format);
+		return (1);
+	}
+	pos = -1;
+	while (format[++pos])
+	{
+		if (format[pos] == '%')
+			parse_flags(format, &pos, arg);
 		else
-			ft_putchar(format[i]);
+			ft_putchar(format[pos]);
 	}
 	va_end(arg);
 	return (1);
