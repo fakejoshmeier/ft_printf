@@ -6,15 +6,15 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/21 08:22:57 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/28 13:58:02 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/* Accounts for a lack of flags, working as a simple putstr otherwise.  All of
+/* Accounts for a lack of flags, working as putstr otherwise.  All of
 ** the initial parsing functions are placed here, so as to make it more compact
-** and easy to follow.  Since there are only 5 types of cast that need to be
+** and easy to follow.  Since there are 5 types of cast that need to be
 ** made per set of flags, all of the various flag types, e.g. -ll, -h, etc.,
 ** will have their own functions, titled along the lines of hh_cast or such.
 ** Credit to mlu for showing me the light of ternary operators and how they
@@ -34,13 +34,13 @@
 //str[*i] == ''' ? just_l : 0;
 //}
 
-void	parse_flags(char *str, int *i, va_list arg)
-nt{
+void	parse_flags(va_list arg, int *i, const char *str)
+{
 	*i += 1;
 	str[*i] == 'd' ? int_cast(arg) : 0;
 	str[*i] == 'i' ? int_cast(arg) : 0;
 	str[*i] == 'o' ? oct_cast(arg) : 0;
-	str[*i] == 'x' ? hex_cast(arg) : 0;
+	str[*i] == 'x' ? lhex_cast(arg) : 0;
 	str[*i] == 'X' ? hex_cast(arg) : 0;
 	str[*i] == 'u' ? uint_cast(arg) : 0;
 	str[*i] == 'c' ? char_cast(arg) : 0;
@@ -77,7 +77,7 @@ int		ft_printf(const char *format, ...)
 	while (format[++pos])
 	{
 		if (format[pos] == '%')
-			parse_flags(format, &pos, arg);
+			parse_flags(arg, &pos, format);
 		else
 			ft_putchar(format[pos]);
 	}

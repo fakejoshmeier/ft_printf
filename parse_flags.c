@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:49:05 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/21 08:11:59 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/28 15:18:40 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,46 +22,46 @@
 ** equally horrid.
 */
 
-void	parse_hflag(va_list arg, int *i, char *str)
+void	parse_hflag(va_list arg, int *i, const char *str)
 {
 	*i += 1;
 	str[*i] == 'd' ? h_int_cast(arg) : 0;
 	str[*i] == 'i' ? h_int_cast(arg) : 0;
 	str[*i] == 'o' ? h_oct_cast(arg) : 0;
-	str[*i] == 'x' ? h_hex_cast(arg) : 0;
+	str[*i] == 'x' ? h_lhex_cast(arg) : 0;
 	str[*i] == 'X' ? h_hex_cast(arg) : 0;
 	str[*i] == 'u' ? h_uint_cast(arg) : 0;
 }
 
-void	parse_hhflag(va_list arg, int *i, char *str)
+void	parse_hhflag(va_list arg, int *i, const char *str)
 {
 	*i += 2;
 	str[*i] == 'd' ? hh_int_cast(arg) : 0;
 	str[*i] == 'i' ? hh_int_cast(arg) : 0;
 	str[*i] == 'o' ? hh_oct_cast(arg) : 0;
-	str[*i] == 'x' ? hh_hex_cast(arg) : 0;
+	str[*i] == 'x' ? hh_lhex_cast(arg) : 0;
 	str[*i] == 'X' ? hh_hex_cast(arg) : 0;
 	str[*i] == 'u' ? hh_uint_cast(arg) : 0;
 }
 
-void	parse_lflag(va_list arg, int *i, char *str)
+void	parse_lflag(va_list arg, int *i, const char *str)
 {
 	*i += 1;
 	str[*i] == 'd' ? l_int_cast(arg) : 0;
 	str[*i] == 'i' ? l_int_cast(arg) : 0;
 	str[*i] == 'o' ? l_oct_cast(arg) : 0;
-	str[*i] == 'x' ? l_hex_cast(arg) : 0;
+	str[*i] == 'x' ? l_lhex_cast(arg) : 0;
 	str[*i] == 'X' ? l_hex_cast(arg) : 0;
 	str[*i] == 'u' ? l_uint_cast(arg) : 0;
 }
 
-void	parse_llflag(va_list arg, int *i, char *str)
+void	parse_llflag(va_list arg, int *i, const char *str)
 {
 	*i += 2;
 	str[*i] == 'd' ? ll_int_cast(arg) : 0;
 	str[*i] == 'i' ? ll_int_cast(arg) : 0;
 	str[*i] == 'o' ? ll_oct_cast(arg) : 0;
-	str[*i] == 'x' ? ll_hex_cast(arg) : 0;
+	str[*i] == 'x' ? ll_lhex_cast(arg) : 0;
 	str[*i] == 'X' ? ll_hex_cast(arg) : 0;
 	str[*i] == 'u' ? ll_uint_cast(arg) : 0;
 }

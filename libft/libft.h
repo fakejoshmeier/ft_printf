@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 11:34:56 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/21 11:22:39 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/28 15:19:14 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,16 @@ void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr_base_fd(int n, int base, int fd);
 void				ft_putnbr_base(int n, int base);
+void				ft_putnbr_base_lc(int n, int base, int fd);
 void				ft_putunbr_base(unsigned int n, int base);
 void				ft_putunbr_base_fd(unsigned int n, int base, int fd);
+void				ft_putunbr_base_lc(unsigned int n, int base, int fd);
+void				ft_putlong_base_fd(long n, int base, int fd);
+void				ft_putlong_base_lc(long n, int base, int fd);
+void				ft_putllong_base_fd(long long n, int base, int fd);
+void				ft_putllong_base_lc(long long n, int base, int fd);
+void				ft_putulong_base_fd(unsigned long n, int base, int fd);
+void				ft_putullong_base_fd(unsigned long long n, int b, int fd);
 void				ft_putstr(char *s);
 void				ft_putstr_fd(char const *s, int fd);
 char				*ft_strcat(char *dst, const char *src);
