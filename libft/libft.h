@@ -73,6 +73,8 @@ void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr_base_fd(int n, int base, int fd);
 void				ft_putnbr_base(int n, int base);
+void				ft_putunbr_base(unsigned int n, int base);
+void				ft_putunbr_base_fd(unsigned int n, int base, int fd);
 void				ft_putstr(char *s);
 void				ft_putstr_fd(char const *s, int fd);
 char				*ft_strcat(char *dst, const char *src);

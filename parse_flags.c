@@ -44,41 +44,24 @@ void	parse_hhflag(va_list arg, int *i, char *str)
 	str[*i] == 'u' ? hh_uint_cast(arg) : 0;
 }
 
-//void	parse_prec_flags(char *str, int *i, va_list arg)
-//{
-//	str[*i] == '-' ? just_l : 0;
-//	str[*i] == '0' ? just_l : 0;
-//	str[*i] == '+' ? just_l : 0;
-//	str[*i] == '#' ? just_l : 0;
-//	str[*i] == ' ' ? 
-//	str[*i] == 'j' ? just_l : 0;
-//	str[*i] == 'z' ? just_l : 0;
-//	str[*i] == 'O' ? just_l : 0;
-//	str[*i] == ''' ? just_l : 0;
-//}
-
-void	parse_flags(char *str, int *i, va_list arg)
+void	parse_lflag(va_list arg, int *i, char *str)
 {
 	*i += 1;
-	str[*i] == 'd' ? int_cast(arg) : 0;
-	str[*i] == 'i' ? int_cast(arg) : 0;
-	str[*i] == 'o' ? oct_cast(arg) : 0;
-	str[*i] == 'x' ? hex_cast(arg) : 0;
-	str[*i] == 'X' ? hex_cast(arg) : 0;
-	str[*i] == 'u' ? uint_cast(arg) : 0;
-	str[*i] == 'c' ? char_cast(arg) : 0;
-	str[*i] == 's' ? str_cast(arg) : 0;
-	str[*i] == '%' ? ft_putchar('%') : 0;
-//	str[*i] == 'f' ? dub_cast(arg) : 0;
-//	str[*i] == 'e' ? dub_cast(arg) : 0;
-//	str[*i] == 'E' ? dub_cast(arg) : 0;
-//	str[*i] == 'g' ? dub_cast(arg) : 0;
-//	str[*i] == 'G' ? dub_cast(arg) : 0;
-//	str[*i] == 'n' ? int_cast(arg) : 0; Figure this one out later.
-//	str[*i] == 't' ? parse_hflags(arg, i , str) : 0;
-	(str[*i] == 'h' && str[*i + 1] != 'h') ? parse_hflag(arg, i , str) : 0;
-	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i , str) : 0;
-	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i , str) : 0;
-	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i , str) : 0;
-//	parse_prec_flags(str, &i, arg);
+	str[*i] == 'd' ? l_int_cast(arg) : 0;
+	str[*i] == 'i' ? l_int_cast(arg) : 0;
+	str[*i] == 'o' ? l_oct_cast(arg) : 0;
+	str[*i] == 'x' ? l_hex_cast(arg) : 0;
+	str[*i] == 'X' ? l_hex_cast(arg) : 0;
+	str[*i] == 'u' ? l_uint_cast(arg) : 0;
+}
+
+void	parse_llflag(va_list arg, int *i, char *str)
+{
+	*i += 2;
+	str[*i] == 'd' ? ll_int_cast(arg) : 0;
+	str[*i] == 'i' ? ll_int_cast(arg) : 0;
+	str[*i] == 'o' ? ll_oct_cast(arg) : 0;
+	str[*i] == 'x' ? ll_hex_cast(arg) : 0;
+	str[*i] == 'X' ? ll_hex_cast(arg) : 0;
+	str[*i] == 'u' ? ll_uint_cast(arg) : 0;
 }
