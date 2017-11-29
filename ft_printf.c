@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 13:58:02 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/28 17:20:49 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@
 ** just werk for a project like this.
 */
 
-//void	parse_prec_flags(char *str, int *i, va_list arg)
-//{
+void	parse_prec_flags(const char *str, int *i, va_list arg)
+{
 //str[*i] == '-' ? just_l : 0;
 //str[*i] == '0' ? just_l : 0;
 //str[*i] == '+' ? just_l : 0;
 //str[*i] == '#' ? just_l : 0;
 //str[*i] == ' ' ? 
-//str[*i] == 'j' ? just_l : 0;
+	str[*i] == 'j' ? parse_jflag(arg, i, str) : 0;
 //str[*i] == 'z' ? just_l : 0;
 //str[*i] == 'O' ? just_l : 0;
 //str[*i] == ''' ? just_l : 0;
-//}
+}
 
 void	parse_flags(va_list arg, int *i, const char *str)
 {
@@ -57,7 +57,7 @@ void	parse_flags(va_list arg, int *i, const char *str)
 	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i , str) : 0;
 	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i , str) : 0;
 	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i , str) : 0;
-	//parse_prec_flags(str, &i, arg);
+	parse_prec_flags(str, i, arg);
 }
 
 int		ft_printf(const char *format, ...)
