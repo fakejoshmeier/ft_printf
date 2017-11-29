@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 17:20:49 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/29 11:03:41 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	parse_prec_flags(const char *str, int *i, va_list arg)
 //str[*i] == '#' ? just_l : 0;
 //str[*i] == ' ' ? 
 	str[*i] == 'j' ? parse_jflag(arg, i, str) : 0;
-//str[*i] == 'z' ? just_l : 0;
+    str[*i] == 'z' ? parse_zflag(arg, i, str) : 0;
 //str[*i] == 'O' ? just_l : 0;
 //str[*i] == ''' ? just_l : 0;
 }
