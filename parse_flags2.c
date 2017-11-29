@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:49:05 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 13:48:17 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/28 16:57:35 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,24 @@
 
 
 
-void	parse_zflag(va_list arg, int *i, char *str)
+void	parse_zflag(va_list arg, int *i, const char *str)
 {
 	*i += 1;
 	str[*i] == 'd' ? z_int_cast(arg) : 0;
 	str[*i] == 'i' ? z_int_cast(arg) : 0;
 	str[*i] == 'o' ? z_oct_cast(arg) : 0;
-	str[*i] == 'x' ? z_hex_cast(arg) : 0;
+	str[*i] == 'x' ? z_lhex_cast(arg) : 0;
 	str[*i] == 'X' ? z_hex_cast(arg) : 0;
 	str[*i] == 'u' ? z_uint_cast(arg) : 0;
 }
 
-void	parse_jflag(va_list arg, int *i, char *str)
+void	parse_jflag(va_list arg, int *i, const char *str)
 {
 	*i += 1;
 	str[*i] == 'd' ? j_int_cast(arg) : 0;
 	str[*i] == 'i' ? j_int_cast(arg) : 0;
 	str[*i] == 'o' ? j_oct_cast(arg) : 0;
-	str[*i] == 'x' ? j_hex_cast(arg) : 0;
+	str[*i] == 'x' ? j_lhex_cast(arg) : 0;
 	str[*i] == 'X' ? j_hex_cast(arg) : 0;
 	str[*i] == 'u' ? j_uint_cast(arg) : 0;
 }

@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 13:58:35 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/28 16:56:50 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdint.h>
 #include "libft/libft.h"
 int		ft_printf(const char *format, ...);
 /*
@@ -54,4 +55,10 @@ void	ll_oct_cast(va_list arg);
 void	ll_hex_cast(va_list arg);
 void	ll_lhex_cast(va_list arg);
 void	ll_uint_cast(va_list arg);
+void	j_int_cast(va_list arg);
+void	j_oct_cast(va_list arg);
+void	j_hex_cast(va_list arg);
+void	j_lhex_cast(va_list arg);
+void	j_uint_cast(va_list arg);
+
 #endif
