@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/29 11:03:08 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/29 12:21:26 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdint.h>
-#include "libft/libft.h"
+#include "../libft/libft.h"
 int		ft_printf(const char *format, ...);
 /*
 ** Parse functions

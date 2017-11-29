@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 21:04:05 by jmeier            #+#    #+#              #
-#    Updated: 2017/11/21 11:44:02 by jmeier           ###   ########.fr        #
+#    Updated: 2017/11/29 11:38:21 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_strstr.c \
 		ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strsub.c \
 		ft_strtrim.c ft_tolower.c ft_toupper.c ft_isspace.c ft_sqrt.c \
 		ft_lstnodecheck.c get_next_line.c ft_free.c ft_realloc.c \
-		ft_putnbr_base ft_putnbr_base_fd
+		ft_putnbr_base.c ft_putnbr_base_fd.c ft_putnbr_base_lc.c \
+		ft_putllong_base_fd.c ft_putllong_base_lc.c ft_putlong_base_fd.c \
+		ft_putlong_base_lc.c ft_putullong_base_fd.c ft_putulong_base_fd.c \
+		ft_putunbr_base.c ft_putunbr_base_fd.c ft_putunbr_base_lc.c
 HEADER = libft.h
 OBJ = $(SRC:.c=.o)
 

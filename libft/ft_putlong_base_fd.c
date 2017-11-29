@@ -6,13 +6,13 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 12:52:12 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 14:42:34 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/29 11:57:34 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putlong_base_fd(long n, int base, int fd)
+void	ft_putlong_base_fd(long n, long base, int fd)
 {
 	long	p;
 	char	*c;

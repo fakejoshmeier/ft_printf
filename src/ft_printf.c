@@ -6,11 +6,11 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/29 11:03:41 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/29 12:22:36 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../inc/ft_printf.h"
 
 /* Accounts for a lack of flags, working as putstr otherwise.  All of
 ** the initial parsing functions are placed here, so as to make it more compact
@@ -43,8 +43,8 @@ void	parse_flags(va_list arg, int *i, const char *str)
 	str[*i] == 'x' ? lhex_cast(arg) : 0;
 	str[*i] == 'X' ? hex_cast(arg) : 0;
 	str[*i] == 'u' ? uint_cast(arg) : 0;
-	str[*i] == 'c' ? char_cast(arg) : 0;
-	str[*i] == 's' ? str_cast(arg) : 0;
+//	str[*i] == 'c' ? char_cast(arg) : 0;
+//	str[*i] == 's' ? str_cast(arg) : 0;
 	str[*i] == '%' ? ft_putchar('%') : 0;
 	//str[*i] == 'f' ? dub_cast(arg) : 0;
 	//str[*i] == 'e' ? dub_cast(arg) : 0;
