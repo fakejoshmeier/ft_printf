@@ -6,18 +6,16 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:49:05 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 17:20:03 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/30 11:51:47 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
- * The l and ll flags turn the d and i into long, and long long, respectively.
- * For o, u, x, X, they turn into unsigned long and long long.
+** These should cover all of the other flags that can be applied to the
+** commands.
 */
-
-
 
 void	parse_zflag(va_list arg, int *i, const char *str)
 {

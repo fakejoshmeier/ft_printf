@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:49:05 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 15:18:40 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/30 11:49:41 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 ** Credit to mlu for helping me with this and showing me the light that is
 ** ternary operators.  Holy shit, do they make this clusterfuck compact.
 ** Basically, this works by parsing the arguments, running under the assumption
-** that there are indeed arguments to parse, and casts the arguments 
-** accordingly.  Need to make a printer for all the good casting that 
-** I'm doing.  Oh shit, I gotta call this the casting couch or something 
+** that there are indeed arguments to parse, and casts the arguments
+** accordingly.  Need to make a printer for all the good casting that
+** I'm doing.  Oh shit, I gotta call this the casting couch or something
 ** equally horrid.
 */
 
