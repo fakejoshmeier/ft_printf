@@ -28,15 +28,16 @@ LIB_NAM = libft.a
 LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
 
 
-H_LOCS = -I inc -I libft/
+H_LOCS = -I inc -I libft/inc
 
 C_FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME): $(O_SRC) $(LIB_SRC)
+$(NAME): $(C_SRC) | $(O_SRC)
 	@echo Compiling $@ library...
-	@ar rcs $@ $^
+	@ar rcs $@ $(O_SRC)
+	@ranlib $(NAME)
 
 $(O_LOC)%.o: $(C_LOC)%.c
 	@echo Re-compiling $< file...
