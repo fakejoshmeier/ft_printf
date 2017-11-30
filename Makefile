@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 11:12:33 by jmeier            #+#    #+#              #
-#    Updated: 2017/11/29 12:20:57 by jmeier           ###   ########.fr        #
+#    Updated: 2017/11/30 11:47:57 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,13 @@ O_SRC = $(addprefix $(O_LOC), $(O_NAM))
 
 LIB_LOC = libft/
 LIB_NAM = libft.a
-LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
-
+LIB_SRC = $(LIB_LOC)/$(LIB_NAM))
 
 H_LOCS = -I inc -I libft/inc
 
 C_FLAGS = -Wall -Werror -Wextra
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 
 $(NAME): $(C_SRC) | $(O_SRC)
 	@echo Compiling $@ library...
@@ -43,12 +42,6 @@ $(O_LOC)%.o: $(C_LOC)%.c
 	@echo Re-compiling $< file...
 	@gcc  $(H_LOCS) -o $@ -c $<
 
-$(LIB_SRC): force
-	@make -C $(LIB_LOC)
-
-force:
-	@true
-
 clean:
 	@echo Cleaning .o files ...
 	@make clean -C $(LIB_LOC)
@@ -56,8 +49,8 @@ clean:
 	@echo ... Successfully removed .o files
 
 fclean:
-	@echo Cleaning .o files...
 	@make fclean -C $(LIB_LOC)
+	@echo Cleaning .o files...
 	@/bin/rm -rf $(O_SRC)
 	@echo Successfully removed .o files
 	@echo Cleaning $(NAME) ...
@@ -65,5 +58,8 @@ fclean:
 	@echo ...Successfully removed $(NAME)
 
 re: fclean all
+
+$(LIBFT):
+	@$(MAKE) -C $(LIB_LOC)
 
 .PHONY: all test clean fclean re

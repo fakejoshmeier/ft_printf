@@ -6,7 +6,7 @@
 /*   By: jmeier <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 10:55:52 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/29 11:00:14 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/30 11:31:13 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	z_oct_cast(va_list arg)
 
 void	z_hex_cast(va_list arg)
 {
-	size_t  output;
+	size_t	output;
 
 	output = (size_t)va_arg(arg, void*);
 	ft_putunbr_base((unsigned int)output, 12);

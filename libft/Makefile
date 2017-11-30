@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 21:04:05 by jmeier            #+#    #+#              #
-#    Updated: 2017/11/29 11:38:21 by jmeier           ###   ########.fr        #
+#    Updated: 2017/11/30 11:46:10 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,11 +47,14 @@ $(O_LOC)%.o: $(C_LOC)%.c
 	@gcc -Wall -Werror -Wextra $(H_LOC) -o $@ -c $<
 
 clean:
-		@echo Cleaning $@...
-		/bin/rm -f $(O_SRC) libft.h.gch
+	@echo Cleaning .o files...
+	@/bin/rm -f $(O_SRC) libft.h.gch
+	@echo .o files removed.
 
 fclean: clean
-		/bin/rm -f $(NAME)
+	@echo Cleaning $(NAME) ...
+	@/bin/rm -f $(NAME)
+	@echo $(NAME) removed
 
 re: fclean all
 
