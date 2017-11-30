@@ -6,13 +6,13 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 15:17:40 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/30 12:48:40 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	l_int_cast(va_list arg)
+void	ll_int_cast(va_list arg)
 {
 	long long			output;
 
