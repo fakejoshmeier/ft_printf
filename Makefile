@@ -40,14 +40,13 @@ $(NAME): $(O_SRC) $(LIB_SRC)
 
 $(O_LOC)%.o: $(C_LOC)%.c
 	@echo Re-compiling $< file...
-	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
+	@gcc  $(H_LOCS) -o $@ -c $<
 
-$(LIB_SRC):
+$(LIB_SRC): force
 	@make -C $(LIB_LOC)
 
-test: $(NAME)
-	@gcc $(C_FLAGS) $(H_LOCS) $(NAME) main_for_testing.c
-	@./a.out
+force:
+	@true
 
 clean:
 	@echo Cleaning .o files ...
@@ -55,9 +54,12 @@ clean:
 	@/bin/rm -rf $(O_SRC)
 	@echo ... Successfully removed .o files
 
-fclean: clean
+fclean:
+	@echo Cleaning .o files...
+	@make fclean -C $(LIB_LOC)
+	@/bin/rm -rf $(O_SRC)
+	@echo Successfully removed .o files
 	@echo Cleaning $(NAME) ...
-	@make clean -C $(LIB_LOC)
 	@/bin/rm -f $(NAME)
 	@echo ...Successfully removed $(NAME)
 
