@@ -1,0 +1,58 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/09/18 21:04:05 by jmeier            #+#    #+#              #
+#    Updated: 2017/11/29 11:38:21 by jmeier           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
+LIST = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
+		ft_isdigit ft_isprint ft_itoa ft_itoa_base ft_lstadd ft_lstdel \
+		ft_lstdelone ft_lstiter ft_lstmap ft_lstnew ft_memalloc ft_memccpy \
+		ft_memchr ft_memcmp ft_memcpy ft_memdel ft_memmove ft_memset \
+		ft_putchar ft_putchar_fd ft_putendl ft_putendl_fd ft_putnbr \
+		ft_putnbr_fd ft_putstr ft_putstr_fd ft_strcat ft_strchr ft_strclr \
+		ft_strcmp ft_strcpy ft_strdel ft_strdup ft_strequ ft_striter \
+		ft_striteri ft_strjoin ft_strlcat ft_strlen ft_strmap ft_strmapi \
+		ft_strncat ft_strncmp ft_strncpy ft_strnequ ft_strnew ft_strnstr \
+		ft_strrchr ft_strsplit ft_strsub ft_strtrim ft_tolower ft_toupper \
+		ft_isspace ft_sqrt ft_lstnodecheck get_next_line ft_free ft_realloc \
+		ft_putnbr_base ft_putnbr_base_fd ft_putnbr_base_lc ft_putunbr_base \
+		ft_putllong_base_fd ft_putllong_base_lc ft_putlong_base_fd \
+		ft_putlong_base_lc ft_putullong_base_fd ft_putulong_base_fd \
+		ft_putunbr_base_fd ft_putunbr_base_lc
+
+C_LOC = src/
+C_NAM = $(addsuffix .c, $(LIST))
+C_SRC = $(addprefix $(C_LOC), $(C_NAM))
+
+O_LOC = obj/
+O_NAM = $(addsuffix .o, $(LIST))
+O_SRC = $(addprefix $(O_LOC), $(O_NAM))
+
+H_LOC = -I inc/
+
+all: $(NAME)
+
+$(NAME): $(O_SRC)
+	@echo Building $@...
+	@ar rcs $(NAME) $(O_SRC)
+
+$(O_LOC)%.o: $(C_LOC)%.c
+	@gcc -Wall -Werror -Wextra $(H_LOC) -o $@ -c $<
+
+clean:
+		@echo Cleaning $@...
+		/bin/rm -f $(O_SRC) libft.h.gch
+
+fclean: clean
+		/bin/rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
