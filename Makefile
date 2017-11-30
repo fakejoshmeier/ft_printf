@@ -5,61 +5,64 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/11/29 11:12:33 by jmeier            #+#    #+#              #
-#    Updated: 2017/11/30 11:47:57 by jmeier           ###   ########.fr        #
+#    Created: 2017/11/30 12:37:35 by jmeier            #+#    #+#              #
+#    Updated: 2017/11/30 12:45:40 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-FILES = ft_printf \
-		parse_flags parse_flags2 int_cast h_cast hh_cast l_cast ll_cast j_cast \
-		z_cast
+NAME		=	libftprintf.a
 
-C_LOC = src/
-C_NAM = $(addsuffix .c, $(FILES))
-C_SRC = $(addprefix $(C_LOC), $(C_NAM))
+CC			=	gcc
+CFLAGS		=	-Wall -Werror -Wextra -c
+LIB			=	ar rc
+RLIB		=	ranlib
 
-O_LOC = obj/
-O_NAM = $(addsuffix .o, $(FILES))
-O_SRC = $(addprefix $(O_LOC), $(O_NAM))
+SRC_DIR		=	src
+SRC_FILE	=	ft_printf.c h_cast.c hh_cast.c int_cast.c j_cast.c l_cast.c \
+				ll_cast.c z_cast.c parse_flags.c parse_flags2.c
+SRCS		=	$(addprefix $(SRC_DIR)/, $(SRC_FILE))
 
-LIB_LOC = libft/
-LIB_NAM = libft.a
-LIB_SRC = $(LIB_LOC)/$(LIB_NAM))
+OBJ_DIR		=	obj
+OBJ_FILE	=	$(SRC_FILE:.c=.o)
+OBJS		=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILE))
 
-H_LOCS = -I inc -I libft/inc
+LIBFT_DIR	=	libft
+LIBFT_LIB	=	libft.a
+LIBFT_INC	=	inc
+LIBFT		=	$(LIBFT_DIR)/$(LIBFT_LIB)
 
-C_FLAGS = -Wall -Werror -Wextra
+INC_DIR		=	-I $(LIBFT_DIR)/$(LIBFT_INC) -I inc
+
+.PHONY: libft all clean fclean re
 
 all: $(LIBFT) $(NAME)
 
-$(NAME): $(C_SRC) | $(O_SRC)
-	@echo Compiling $@ library...
-	@ar rcs $@ $(O_SRC)
-	@ranlib $(NAME)
+$(NAME): $(SRCS) | $(OBJS)
+	@echo Compiling $(NAME)...
+	@$(LIB) $@ $(OBJS)
+	@$(RLIB) $(NAME)
+	@#@$(CC) $(CFLAGS) $(LIBFT) $(OBJS) $(INC_DIR) -o $(NAME)
+	@echo $(NAME) compiled
 
-$(O_LOC)%.o: $(C_LOC)%.c
-	@echo Re-compiling $< file...
-	@gcc  $(H_LOCS) -o $@ -c $<
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	@$(CC) -c $^ $(CFLAGS) $(INC_DIR) -o $@
 
 clean:
-	@echo Cleaning .o files ...
-	@make clean -C $(LIB_LOC)
-	@/bin/rm -rf $(O_SRC)
-	@echo ... Successfully removed .o files
-
-fclean:
-	@make fclean -C $(LIB_LOC)
+	@cd $(LIBFT_DIR) && make clean
 	@echo Cleaning .o files...
-	@/bin/rm -rf $(O_SRC)
-	@echo Successfully removed .o files
-	@echo Cleaning $(NAME) ...
-	@/bin/rm -f $(NAME)
-	@echo ...Successfully removed $(NAME)
+	@rm -rf $(OBJ_DIR)
+	@echo Done
+
+fclean: clean
+	@cd $(LIBFT_DIR) && make fclean
+	@echo Cleaning $(NAME)...
+	@rm -f $(NAME)
+	@echo Done
 
 re: fclean all
 
-$(LIBFT):
-	@$(MAKE) -C $(LIB_LOC)
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
-.PHONY: all test clean fclean re
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR)
