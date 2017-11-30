@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdint.h>
-#include "../libft/libft.h"
+#include "libft.h"
 int		ft_printf(const char *format, ...);
 /*
 ** Parse functions
