@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/30 11:30:19 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/11/30 15:18:57 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int		ft_printf(const char *format, ...)
 	va_start(arg, format);
 	if (!(ft_strchr(format, '%')))
 	{
-		ft_putstr((char *)format);
-		return (1);
+		ft_putstr((char*)va_arg(arg, void*));
+		return (0);
 	}
 	pos = -1;
 	while (format[++pos])
@@ -82,5 +82,5 @@ int		ft_printf(const char *format, ...)
 			ft_putchar(format[pos]);
 	}
 	va_end(arg);
-	return (1);
+	return (0);
 }
