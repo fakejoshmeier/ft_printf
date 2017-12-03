@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 19:09:56 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/03 13:02:16 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 13:03:15 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	str_cast(va_list arg)
 	if (output)
 		ft_putstr((char *)output);
 	else
-		ft_putstr("(null)")
+		ft_putstr("(null)");
 }
 
 void	elsie_cast(va_list arg)
