@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/02 16:32:55 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/02 19:37:54 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,8 @@ void	z_oct_cast(va_list arg);
 void	z_hex_cast(va_list arg);
 void	z_lhex_cast(va_list arg);
 void	z_uint_cast(va_list arg);
+void	char_cast(va_list arg);
+void	str_cast(va_list arg);
+void	elsie_cast(va_list arg);
+void	loss_cast(va_list arg);
 #endif

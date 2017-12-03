@@ -6,14 +6,14 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2017/11/30 18:12:29 by jmeier           ###   ########.fr        #
+#    Updated: 2017/12/02 19:35:53 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 FILES = ft_printf \
 		parse_flags parse_flags2 int_cast h_cast hh_cast l_cast ll_cast j_cast \
-		z_cast
+		z_cast char_cast
 
 LIBFT = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_isdigit ft_isprint ft_itoa ft_itoa_base ft_lstadd ft_lstdel \

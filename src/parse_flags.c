@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:49:05 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/30 11:49:41 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/02 19:38:51 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	parse_lflag(va_list arg, int *i, const char *str)
 	str[*i] == 'x' ? l_lhex_cast(arg) : 0;
 	str[*i] == 'X' ? l_hex_cast(arg) : 0;
 	str[*i] == 'u' ? l_uint_cast(arg) : 0;
+	str[*i] == 'c' ? elsie_cast(arg) : 0;
+	str[*i] == 's' ? loss_cast(arg) : 0;
 }
 
 void	parse_llflag(va_list arg, int *i, const char *str)

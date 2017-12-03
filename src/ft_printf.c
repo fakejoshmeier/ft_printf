@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/02 16:57:01 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/02 19:35:29 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	parse_escape(int *i, const char *str)
 	str[*i] == '?' ? ft_putchar('\?') : 0;
 }
 
-//void	parse_prec_flags(const char *str, int *i, va_list arg)
-//{
+void	parse_prec_flags(const char *str, int *i, va_list arg)
+{
 //str[*i] == '-' ? just_l : 0;
 //str[*i] == '0' ? just_l : 0;
 //str[*i] == '+' ? just_l : 0;
@@ -48,7 +48,9 @@ void	parse_escape(int *i, const char *str)
 //str[*i] == ' ' ? 
 //str[*i] == 'O' ? just_l : 0;
 //str[*i] == ''' ? just_l : 0;
-//}
+	str[*i] == 'C' ? elsie_cast(arg) : 0;
+	str[*i] == 'S' ? loss_cast(arg) : 0;
+}
 
 void	parse_flags(va_list arg, int *i, const char *str)
 {
@@ -75,7 +77,7 @@ void	parse_flags(va_list arg, int *i, const char *str)
 	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i , str) : 0;
 	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i , str) : 0;
 	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i , str) : 0;
-//	parse_prec_flags(str, i, arg);
+	parse_prec_flags(str, i, arg);
 }
 
 int		ft_printf(const char *format, ...)
