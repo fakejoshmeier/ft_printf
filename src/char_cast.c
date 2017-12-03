@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 19:09:56 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/03 13:03:15 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 13:35:29 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	loss_cast(va_list arg)
 {
 	wchar_t			*output;
 
-	output = (wchar_t *)va_arg(arg, void*);
+	output = (wchar_t *)va_arg(arg, char*);
 	ft_putstr((char *)output);
 }
