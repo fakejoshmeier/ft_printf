@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 19:09:56 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/02 19:34:58 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/02 20:25:10 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	char_cast(va_list arg)
 	unsigned char	output;
 
 	output = (unsigned char)va_arg(arg, void*);
-	ft_putchar((char)output);
+	write(1, &output, 1);
 }
 
 void	str_cast(va_list arg)
