@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/29 12:04:36 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 12:03:31 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-
 
 void				*ft_realloc(void *ptr, size_t size, size_t new_size);
 void				ft_free(void *ptr);
@@ -75,14 +74,18 @@ void				ft_putnbr_base_fd(int n, int base, int fd);
 void				ft_putnbr_base(int n, int base);
 void				ft_putnbr_base_lc(int n, int base, int fd);
 void				ft_putunbr_base(unsigned int n, unsigned int base);
-void				ft_putunbr_base_fd(unsigned int n, unsigned int base, int fd);
-void				ft_putunbr_base_lc(unsigned int n, unsigned int base, int fd);
-void				ft_putlong_base_fd(long n, long base, int fd);
-void				ft_putlong_base_lc(unsigned long n, unsigned long base, int fd);
-void				ft_putllong_base_fd(long long n, long long base, int fd);
-void				ft_putllong_base_lc(unsigned long long n, unsigned long long b, int fd);
-void				ft_putulong_base_fd(unsigned long n, unsigned long base, int fd);
-void				ft_putullong_base_fd(unsigned long long n, unsigned long long b, int fd);
+void				ft_putunbr_base_fd(unsigned int n, unsigned int base,
+																	int fd);
+void				ft_putunbr_base_lc(unsigned int n, unsigned int base,
+																	int fd);
+void				ft_putlong(long n, long base, int fd);
+void				ft_putlong_lc(unsigned long n, unsigned long base, int fd);
+void				ft_putlonglong(long long n, long long base, int fd);
+void				ft_putlonglong_lc(unsigned long long n,
+												unsigned long long b, int fd);
+void				ft_putulong(unsigned long n, unsigned long base, int fd);
+void				ft_putulonglong(unsigned long long n,
+												unsigned long long b, int fd);
 void				ft_putstr(char *s);
 void				ft_putstr_fd(char const *s, int fd);
 char				*ft_strcat(char *dst, const char *src);

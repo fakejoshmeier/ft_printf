@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/02 19:35:29 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 12:30:29 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	parse_flags(va_list arg, int *i, const char *str)
 	str[*i] == 'x' ? lhex_cast(arg) : 0;
 	str[*i] == 'X' ? hex_cast(arg) : 0;
 	str[*i] == 'u' ? uint_cast(arg) : 0;
-//	str[*i] == 'c' ? char_cast(arg) : 0;
-//	str[*i] == 's' ? str_cast(arg) : 0;
+	str[*i] == 'c' ? char_cast(arg) : 0;
+	str[*i] == 's' ? str_cast(arg) : 0;
 	str[*i] == '%' ? ft_putchar('%') : 0;
 	//str[*i] == 'f' ? dub_cast(arg) : 0;
 	//str[*i] == 'e' ? dub_cast(arg) : 0;
@@ -84,13 +84,12 @@ int		ft_printf(const char *format, ...)
 {
 	va_list	arg;
 	int		pos;
-//	int		;
 
 	ASSERT(format);
 	va_start(arg, format);
 	if (!(ft_strchr(format, '%')))
 	{
-		ft_putstr((char*)va_arg(arg, void*));
+		ft_putstr((char *)format);
 		return (0);
 	}
 	pos = -1;

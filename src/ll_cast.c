@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/30 12:48:40 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 12:03:37 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ll_int_cast(va_list arg)
 	long long			output;
 
 	output = (long long)va_arg(arg, void*);
-	ft_putllong_base_fd(output, 10, 1);
+	ft_putlonglong(output, 10, 1);
 }
 
 void	ll_oct_cast(va_list arg)
@@ -25,7 +25,7 @@ void	ll_oct_cast(va_list arg)
 	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putullong_base_fd(output, 8, 1);
+	ft_putulonglong(output, 8, 1);
 }
 
 void	ll_hex_cast(va_list arg)
@@ -33,7 +33,7 @@ void	ll_hex_cast(va_list arg)
 	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putullong_base_fd(output, 12, 1);
+	ft_putulonglong(output, 12, 1);
 }
 
 void	ll_lhex_cast(va_list arg)
@@ -41,7 +41,7 @@ void	ll_lhex_cast(va_list arg)
 	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putllong_base_lc(output, 16, 1);
+	ft_putlonglong_lc(output, 16, 1);
 }
 
 void	ll_uint_cast(va_list arg)
@@ -49,5 +49,5 @@ void	ll_uint_cast(va_list arg)
 	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putullong_base_fd(output, 10, 1);
+	ft_putulonglong(output, 10, 1);
 }
