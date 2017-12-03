@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 13:42:11 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/03 13:49:19 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 14:11:19 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ static int	ft_widelen(wchar_t *str)
 
 void		ft_putwstr(wchar_t *str)
 {
+	int	i;
+
 	if (str)
-		write(1, str, ft_widelen(str));
+	{
+		i = -1;
+		while (str[++i])
+			write(1, &str, 1);
+	}
 	else
 		write(1, "(null)", 6);
 }
