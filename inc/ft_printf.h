@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/29 12:21:26 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/02 16:32:55 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	parse_lflag(va_list arg, int *i, const char *str);
 void	parse_llflag(va_list arg, int *i, const char *str);
 void	parse_zflag(va_list arg, int *i, const char *str);
 void	parse_jflag(va_list arg, int *i, const char *str);
+void	parse_escape(int *i, const char *str);
 /*
 ** Casting couch ;)
 */
@@ -65,6 +66,4 @@ void	z_oct_cast(va_list arg);
 void	z_hex_cast(va_list arg);
 void	z_lhex_cast(va_list arg);
 void	z_uint_cast(va_list arg);
-
-
 #endif

@@ -6,13 +6,13 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 12:52:12 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/29 12:01:28 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/02 17:15:43 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putullong_base_lc(unsigned long long n, unsigned long long b, int fd)
+void	ft_putllong_base_lc(unsigned long long n, unsigned long long b, int fd)
 {
 	unsigned long long	p;
 	char				*c;
