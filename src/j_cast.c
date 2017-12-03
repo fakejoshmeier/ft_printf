@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 16:51:38 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 12:34:29 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	j_uint_cast(va_list arg)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	ft_putunbr_base(output, 10);
+	ft_putulonglong((unsigned long long)output, 10, 1);
 }

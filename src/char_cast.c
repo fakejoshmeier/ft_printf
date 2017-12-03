@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 19:09:56 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/02 20:36:37 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/03 12:33:13 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	char_cast(va_list arg)
 {
 	unsigned char	output;
 
-	output = (unsigned char)va_arg(arg, void*);
+	output = (unsigned char)va_arg(arg, int);
 	write(1, &output, 1);
 }
 
@@ -24,7 +24,7 @@ void	str_cast(va_list arg)
 {
 	unsigned char	*output;
 	int				i;
-	output = (unsigned char *)va_arg(arg, void*);
+	output = (unsigned char *)va_arg(arg, char*);
 	ft_putstr((char *)output);
 	i = ft_strlen((char*)output);
 	output[i] = '\0';
