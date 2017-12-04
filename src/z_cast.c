@@ -49,5 +49,5 @@ void	z_uint_cast(va_list arg)
 	size_t	output;
 
 	output = (size_t)va_arg(arg, void*);
-	ft_putunbr_base((unsigned int)output, 10);
+	ft_putulonglong((unsigned long long)output, 10, 1);
 }

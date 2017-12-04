@@ -17,7 +17,7 @@ void	j_int_cast(va_list arg)
 	intmax_t	output;
 
 	output = (intmax_t)va_arg(arg, void*);
-	ft_putnbr(output);
+	ft_putnbr((int)output);
 }
 
 void	j_oct_cast(va_list arg)
@@ -25,7 +25,7 @@ void	j_oct_cast(va_list arg)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	ft_putunbr_base(output, 8);
+	ft_putunbr_base((unsigned int)output, 8);
 }
 
 void	j_hex_cast(va_list arg)
@@ -33,7 +33,7 @@ void	j_hex_cast(va_list arg)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	ft_putunbr_base(output, 12);
+	ft_putunbr_base((unsigned int)output, 12);
 }
 
 void	j_lhex_cast(va_list arg)
@@ -41,7 +41,7 @@ void	j_lhex_cast(va_list arg)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	ft_putnbr_base_lc(output, 16, 1);
+	ft_putnbr_base_lc((unsigned int)output, 16, 1);
 }
 
 void	j_uint_cast(va_list arg)
