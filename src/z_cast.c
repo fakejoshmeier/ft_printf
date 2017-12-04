@@ -33,7 +33,7 @@ void	z_hex_cast(va_list arg)
 	size_t	output;
 
 	output = (size_t)va_arg(arg, void*);
-	ft_putunbr_base((unsigned int)output, 12);
+	ft_putunbr_base((unsigned int)output, 16);
 }
 
 void	z_lhex_cast(va_list arg)

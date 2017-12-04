@@ -33,7 +33,7 @@ void	h_hex_cast(va_list arg)
 	unsigned short	output;
 
 	output = (unsigned short)va_arg(arg, void*);
-	ft_putunbr_base((unsigned int)output, 12);
+	ft_putunbr_base((unsigned int)output, 16);
 }
 
 void	h_lhex_cast(va_list arg)

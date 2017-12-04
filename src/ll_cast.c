@@ -33,7 +33,7 @@ void	ll_hex_cast(va_list arg)
 	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putulonglong(output, 12, 1);
+	ft_putulonglong(output, 16, 1);
 }
 
 void	ll_lhex_cast(va_list arg)

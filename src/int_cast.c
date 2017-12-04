@@ -33,7 +33,7 @@ void	hex_cast(va_list arg)
 	unsigned int	output;
 
 	output = va_arg(arg, unsigned int);
-	ft_putunbr_base(output, 12);
+	ft_putunbr_base(output, 16);
 }
 
 void	lhex_cast(va_list arg)

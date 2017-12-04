@@ -33,7 +33,7 @@ void	j_hex_cast(va_list arg)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	ft_putunbr_base((unsigned int)output, 12);
+	ft_putunbr_base((unsigned int)output, 16);
 }
 
 void	j_lhex_cast(va_list arg)
