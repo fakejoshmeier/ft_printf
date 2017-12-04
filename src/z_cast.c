@@ -41,7 +41,7 @@ void	z_lhex_cast(va_list arg)
 	size_t	output;
 
 	output = (size_t)va_arg(arg, void*);
-	ft_putnbr_base_lc((unsigned int)output, 16, 1);
+	ft_putunbr_base_lc((unsigned int)output, 16, 1);
 }
 
 void	z_uint_cast(va_list arg)

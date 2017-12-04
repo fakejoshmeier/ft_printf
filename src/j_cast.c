@@ -41,7 +41,7 @@ void	j_lhex_cast(va_list arg)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	ft_putnbr_base_lc((unsigned int)output, 16, 1);
+	ft_putunbr_base_lc((unsigned int)output, 16, 1);
 }
 
 void	j_uint_cast(va_list arg)
