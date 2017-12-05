@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/03 14:23:57 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/05 15:00:01 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 ** made per set of flags, all of the various flag types, e.g. -ll, -h, etc.,
 ** will have their own functions, titled along the lines of hh_cast or such.
 ** Nonprintable characters are taken care of immediately, as I like not having
-** to think about them in a separate function.
+** to think about them in a separate function.  parse_extra_flags is written
+** as it is to provide space for any future additions to my code.
 ** Credit to mlu for showing me the light of ternary operators and how they
 ** just werk for a project like this.
 */
@@ -34,24 +35,21 @@ void	parse_escape(int *i, const char *str)
 	str[*i] == '"' ? ft_putchar('\"') : 0;
 	str[*i] == 'f' ? ft_putchar('\f') : 0;
 	str[*i] == 't' ? ft_putchar('\t') : 0;
-	str[*i] == 'n' ? ft_putchar('\n') : 0;
+	str[*i] == 'n' ? ft_putchar('\n') : 0;:
 	str[*i] == '0' ? ft_putchar('\0') : 0;
 	str[*i] == '\'' ? ft_putchar('\'') : 0;
 	str[*i] == 'v' ? ft_putchar('\v') : 0;
 	str[*i] == '?' ? ft_putchar('\?') : 0;
 }
 
-void	parse_prec_flags(const char *str, int *i, va_list arg)
+void	parse_extra_flags(const char *str, int *i, va_list arg)
 {
-//str[*i] == '-' ? just_l : 0;
-//str[*i] == '0' ? just_l : 0;
-//str[*i] == '+' ? just_l : 0;
-//str[*i] == '#' ? just_l : 0;
-//str[*i] == ' ' ?
-//str[*i] == 'O' ? just_l : 0;
-//str[*i] == ''' ? just_l : 0;
+	str[*i] == 'O' ? l_oct_cast(arg) : 0;
+	str[*i] == 'D' ? l_int_cast(arg) : 0;
+	str[*i] == 'U' ? l_uint_cast(arg) : 0;
 	str[*i] == 'C' ? elsie_cast(arg) : 0;
 	str[*i] == 'S' ? loss_cast(arg) : 0;
+	parse_width_and_prec(str, i, arg);
 }
 
 void	parse_flags(va_list arg, int *i, const char *str)
@@ -79,7 +77,7 @@ void	parse_flags(va_list arg, int *i, const char *str)
 	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i, str) : 0;
 	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i, str) : 0;
 	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i, str) : 0;
-	parse_prec_flags(str, i, arg);
+	parse_extra_flags(str, i, arg);
 }
 
 int		ft_printf(const char *format, ...)
