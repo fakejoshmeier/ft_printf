@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/28 14:19:13 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/08 12:39:23 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	hh_int_cast(va_list arg)
 {
-	char			output;
+	short			output;
 
 	output = (char)va_arg(arg, void*);
 	ft_putnbr((int)output);

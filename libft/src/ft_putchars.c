@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwstr.c                                       :+:      :+:    :+:   */
+/*   ft_putchars.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 13:42:11 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/08 15:03:47 by jmeier           ###   ########.fr       */
+/*   Created: 2017/12/08 14:09:59 by jmeier            #+#    #+#             */
+/*   Updated: 2017/12/08 14:30:57 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putwstr(wchar_t *str)
+void	ft_putchars(char c, int amt)
 {
-	int	i;
+	char	*buf;
+	int		i;
 
-	if (str)
-	{
-		i = -1;
-		while (str[++i])
-			write(1, &str[i], 1);
-	}
+	buf = (char *)malloc(sizeof(char *) * amt);
+	i = -1;
+	while (buf[++i])
+		buf[i] = c;
+	ft_putstr(buf);
+	ft_free(buf);
 }
