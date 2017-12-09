@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/08 14:38:24 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/08 20:12:06 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+void				ft_putnbrf(int n);
 int					ft_numlen(int n, int base);
 void				ft_putwstr(wchar_t *str);
 void				*ft_realloc(void *ptr, size_t size, size_t new_size);
@@ -68,6 +69,7 @@ void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t byte);
 void				*ft_memset(void *s, int c, size_t n);
 void				ft_putchar(char c);
+void				ft_putchars(char c, int amt);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);

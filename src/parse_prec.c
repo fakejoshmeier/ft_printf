@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:33:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/07 23:52:35 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/08 23:51:21 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,19 @@ void	rip_n_tear(const char *str, int *i, t_flags f)
 	j = *i;
 	while (!ft_isvalue(str[j++]))
 	{
-		str[j] == '-' ? f.dash_flag = 1 : 0;
-		str[j] == '0' ? f.zero_flag = 1 : 0;
-		str[j] == '+' ? f.plus_flag = 1 : 0;
-		str[j] == ' ' ? f.spess_flag = 1 : 0;
-		str[j] == '#' ? f.hash_flag = 1 : 0;
+		str[j] == '-' ? f.dash = 1 : 0;
+		str[j] == '0' ? f.zero = 1 : 0;
+		str[j] == '+' ? f.plus = 1 : 0;
+		str[j] == ' ' ? f.spess = 1 : 0;
+		str[j] == '#' ? f.hash = 1 : 0;
 	}
-	f.dash_flag == 1 ? f.zero_flag = 0 : 0;
-	f.plus_flag == 1 ? f.spess_flag = 0 : 0;
+	f.dash == 1 ? f.zero = 0 : 0;
+	f.plus == 1 ? f.spess = 0 : 0;
 	*i = j;
 }
 
-void	w_parse(const char *str, int *i, va_list arg, t_flags f, t_wp g)
+void	w_parse(const char *str, int *i, va_list arg, t_flags *f, t_wp *g)
 {
-	if (f.hash_flag == 1 && (f.zero_flag == 1 || f.dash_flag == 1))
-	{
-		str[*i] == 'o' || str[*i] == 'O' ? ft_putchar('0') : 0;
-		str[*i] == 'x' ? ft_putstr("0x") : 0;
-		str[*i] == 'X' ? ft_putstr("0X") : 0;
-	}
 	str[*i] == 'd' ? w_int_cast(arg, f, g) : 0;
 	str[*i] == 'i' ? w_int_cast(arg, f, g) : 0;
 	str[*i] == 'o' ? w_oct_cast(arg, f, g) : 0;
@@ -58,14 +52,8 @@ void	w_parse(const char *str, int *i, va_list arg, t_flags f, t_wp g)
 		: 0;
 }
 
-void»···wp_parse(const char *str, int *i, va_list arg, t_flags f, t_wp g)
+void»···wp_parse(const char *str, int *i, va_list arg, t_flags *f, t_wp *g)
 {
-	if (f.hash_flag == 1)
-	{
-		str[*i] == 'o' || str[*i] == 'O' ? ft_putchar('0') : 0;
-		str[*i] == 'x' ? ft_putstr("0x") : 0;
-		str[*i] == 'X' ? ft_putstr("0X") : 0;
-	}
 	str[*i] == 'd' ? wp_int_cast(arg, f, g) : 0;
 	str[*i] == 'i' ? wp_int_cast(arg, f, g) : 0;
 	str[*i] == 'o' ? wp_oct_cast(arg, f, g) : 0;
@@ -88,10 +76,12 @@ void»···wp_parse(const char *str, int *i, va_list arg, t_flags f, t_wp g)
 
 void	parse_width_and_prec(const char *str, int *i, va_list arg)
 {
-	static t_flags	f;
-	static t_wp		g;
-	int				prec_flag;
+	t_flags	*f;
+	t_wp	*g;
+	int		prec_flag;
 
+	g = (t_wp *)malloc(sizeof(t_wp*));
+	f = (t_flags *)malloc(sizeof(t_flags*));
 	prec_flag = 0;
 	rip_n_tear(str, i, f);
 	g.width = ft_atoi(str + *i);

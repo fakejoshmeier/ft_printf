@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbrf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/06 16:19:51 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/08 22:02:38 by jmeier           ###   ########.fr       */
+/*   Created: 2017/09/20 12:52:12 by jmeier            #+#    #+#             */
+/*   Updated: 2017/12/08 20:11:03 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_numlen(int n, int base)
+void	ft_putnbrf(int n)
 {
-	int		len;
-	long	nb;
+	int		p;
+	char	*c;
 
-	len = 0;
-	nb = (long)n;
-	if (nb <= 0)
-		nb *= -1;
-	while (nb != 0)
+	p = 1;
+	c = "0123456789ABCDEFHIJKLMNOPQRSTUVWXYZ";
+	while ((n / p) >= 10 || (n / p) <= -10)
+		p *= 10;
+	while (p > 0)
 	{
-		len++;
-		nb /= base;
+		ft_putchar_fd(c[(n / p) % 10], 1);
+		p /= 10;
 	}
-	return (len);
 }

@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 21:04:05 by jmeier            #+#    #+#              #
-#    Updated: 2017/12/08 14:37:05 by jmeier           ###   ########.fr        #
+#    Updated: 2017/12/08 20:11:26 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIST = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_putnbr_base ft_putnbr_base_fd ft_putnbr_base_lc ft_putunbr_base \
 		ft_putlonglong ft_putlonglong_lc ft_putulonglong ft_putunbr_base_fd \
 		ft_putlong ft_putlong_lc ft_putulong ft_putunbr_base_lc ft_putwstr \
-		ft_isvalue ft_numlen
+		ft_isvalue ft_numlen ft_putchars ft_putnbrf
 
 
 C_LOC = src/

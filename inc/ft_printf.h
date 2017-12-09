@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/07 22:18:06 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/08 21:31:44 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 
 typedef struct	s_flags
 {
-	int			dash_flag;
-	int			zero_flag;
-	int			plus_flag;
-	int			hash_flag;
-	int			spess_flag;
+	int			dash;
+	int			zero;
+	int			plus;
+	int			hash;
+	int			spess;
 }				t_flags;
 
 typedef struct	s_wp
