@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:33:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/10 16:20:08 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/10 19:25:24 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 void	rip_n_tear(const char *str, int *i, t_flags *f)
 {
-	int				j;
-
-	j = *i;
-	while (!ft_isvalue(str[j++]))
+	while (!ft_isvalue(str[*i]))
 	{
-		str[j] == '-' ? f->dash = 1 : 0;
-		str[j] == '0' ? f->zero = 1 : 0;
-		str[j] == '+' ? f->plus = 1 : 0;
-		str[j] == ' ' ? f->spess = 1 : 0;
-		str[j] == '#' ? f->hash = 1 : 0;
+		str[*i] == '-' ? f->dash = 1 : 0;
+		str[*i] == '0' ? f->zero = 1 : 0;
+		str[*i] == '+' ? f->plus = 1 : 0;
+		str[*i] == ' ' ? f->spess = 1 : 0;
+		str[*i] == '#' ? f->hash = 1 : 0;
+		*i += 1;
 	}
 	f->dash == 1 ? f->zero = 0 : 0;
 	f->plus == 1 ? f->spess = 0 : 0;
-	*i = j;
 }
 
 void	w_parse(const char *str, int *i, va_list arg, t_flags *f, t_wp *g)
