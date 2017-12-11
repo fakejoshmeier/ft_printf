@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/10 20:29:40 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/10 20:30:29 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	j_int_cast(va_list arg)
 	intmax_t	output;
 
 	output = (intmax_t)va_arg(arg, void*);
-	ft_putnbr((int)output, 10, 1);
+	ft_putnbr_base_fd((int)output, 10, 1);
 }
 
 void	j_oct_cast(va_list arg)
