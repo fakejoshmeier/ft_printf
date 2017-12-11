@@ -6,7 +6,7 @@
 /*   By: jmeier <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 10:55:52 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/30 11:31:13 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/10 20:50:57 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	z_uint_cast(va_list arg)
 	size_t	output;
 
 	output = (size_t)va_arg(arg, void*);
-	ft_putulonglong((unsigned long long)output, 10, 1);
+	ft_putull((unsigned long long)output);
 }
