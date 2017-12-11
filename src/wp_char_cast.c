@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchars.c                                      :+:      :+:    :+:   */
+/*   wp_char_cast.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 14:09:59 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/09 21:35:13 by jmeier           ###   ########.fr       */
+/*   Created: 2017/12/02 19:09:56 by jmeier            #+#    #+#             */
+/*   Updated: 2017/12/10 18:51:14 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putchars(char c, int amt)
+void	wp_str_cast(va_list arg, t_flags *f, t_wp *g)
 {
-	char	*buf;
-	int		i;
+	char	*output;
 
-	if (amt < 0)
-		amt = 0;
-	buf = (char *)malloc(sizeof(char *) * amt);
-	if (!buf)
-		return ;
-	i = -1;
-	while (buf[++i])
-		buf[i] = c;
-	ft_putstr(buf);
-	ft_free(buf);
+	output = va_arg(arg, char *);
+	char_wp(f, g, output);
+}
+
+void	wp_loss_cast(va_list arg, t_flags *f, t_wp *g)
+{
+	wchar_t			*output;
+
+	output = va_arg(arg, wchar_t*);
+	wchar_wp(f, g, output);
 }

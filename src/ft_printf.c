@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/05 15:00:01 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/10 16:06:31 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	parse_escape(int *i, const char *str)
 	str[*i] == '"' ? ft_putchar('\"') : 0;
 	str[*i] == 'f' ? ft_putchar('\f') : 0;
 	str[*i] == 't' ? ft_putchar('\t') : 0;
-	str[*i] == 'n' ? ft_putchar('\n') : 0;:
+	str[*i] == 'n' ? ft_putchar('\n') : 0;
 	str[*i] == '0' ? ft_putchar('\0') : 0;
 	str[*i] == '\'' ? ft_putchar('\'') : 0;
 	str[*i] == 'v' ? ft_putchar('\v') : 0;
@@ -64,11 +64,6 @@ void	parse_flags(va_list arg, int *i, const char *str)
 	str[*i] == 'c' ? char_cast(arg) : 0;
 	str[*i] == 's' ? str_cast(arg) : 0;
 	str[*i] == '%' ? ft_putchar('%') : 0;
-	//str[*i] == 'f' ? dub_cast(arg) : 0;
-	//str[*i] == 'e' ? dub_cast(arg) : 0;
-	//str[*i] == 'E' ? dub_cast(arg) : 0;
-	//str[*i] == 'g' ? dub_cast(arg) : 0;
-	//str[*i] == 'G' ? dub_cast(arg) : 0;
 	//str[*i] == 'n' ? int_cast(arg) : 0; Figure this one out later.
 	//str[*i] == 't' ? parse_hflags(arg, i , str) : 0;
 	str[*i] == 'j' ? parse_jflag(arg, i, str) : 0;

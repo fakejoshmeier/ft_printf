@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wp_int_cast.c                                      :+:      :+:    :+:   */
+/*   w_int_cast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/09 00:10:40 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/10 01:07:35 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	wp_int_cast(va_list arg, t_flags *f, t_wp *g)
+void	w_int_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	int				output;
 
 	output = va_arg(arg, int);
-	signed_d_wp(f, g, output);
+	signed_w(f, g, output);
 }
 
-void	wp_oct_cast(va_list arg, t_flags *f, t_wp *g)
+void	w_oct_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	unsigned int	output;
 
 	output = va_arg(arg, unsigned int);
-	unsigned_wp(f, g, output, 8);
+	unsigned_w(f, g, output, 8);
 }
 
-void	hex_cast(va_list arg, t_flags *f, t_wp *g)
+void	w_hex_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	unsigned int	output;
 
 	output = va_arg(arg, unsigned int);
-	unsigned_wp(f, g, output, 16);
+	unsigned_w(f, g, output, 16);
 }
 
-void	lhex_cast(va_list arg, t_flags *f, t_wp *g)
+void	w_lhex_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	unsigned int	output;
 
 	output = va_arg(arg, unsigned int);
-	unsigned_wp_lc(f, g, output, 16);
+	unsigned_w_lc(f, g, output, 16);
 }
 
-void	uint_cast(va_list arg, t_flags *f, t_wp *g)
+void	w_uint_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	unsigned int	output;
 
 	output = va_arg(arg, unsigned int);
-	unsigned_wp(f, g, output, 10);
+	unsigned_w(f, g, output, 10);
 }

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchars.c                                      :+:      :+:    :+:   */
+/*   ft_longlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 14:09:59 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/09 21:35:13 by jmeier           ###   ########.fr       */
+/*   Created: 2017/12/06 16:19:51 by jmeier            #+#    #+#             */
+/*   Updated: 2017/12/09 19:24:34 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchars(char c, int amt)
+int		ft_longlen(long n, int base)
 {
-	char	*buf;
-	int		i;
+	int		len;
+	long	nb;
 
-	if (amt < 0)
-		amt = 0;
-	buf = (char *)malloc(sizeof(char *) * amt);
-	if (!buf)
-		return ;
-	i = -1;
-	while (buf[++i])
-		buf[i] = c;
-	ft_putstr(buf);
-	ft_free(buf);
+	len = 0;
+	nb = (long)n;
+	if (nb <= 0)
+		nb *= -1;
+	while (nb != 0)
+	{
+		len++;
+		nb /= base;
+	}
+	return (len);
 }

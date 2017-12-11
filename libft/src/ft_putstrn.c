@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchars.c                                      :+:      :+:    :+:   */
+/*   ft_putstrn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 14:09:59 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/09 21:35:13 by jmeier           ###   ########.fr       */
+/*   Created: 2017/09/18 16:06:58 by jmeier            #+#    #+#             */
+/*   Updated: 2017/12/09 21:47:38 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchars(char c, int amt)
+void	ft_putstrn(char *s, int n)
 {
-	char	*buf;
-	int		i;
-
-	if (amt < 0)
-		amt = 0;
-	buf = (char *)malloc(sizeof(char *) * amt);
-	if (!buf)
-		return ;
-	i = -1;
-	while (buf[++i])
-		buf[i] = c;
-	ft_putstr(buf);
-	ft_free(buf);
+	if (s)
+	{
+		if (n >= ft_strlen(s))
+			write(1, s, ft_strlen(s));
+		else
+			write(1, s, n);
+	}
 }

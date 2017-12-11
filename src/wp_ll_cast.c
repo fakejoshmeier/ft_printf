@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ll_cast.c                                          :+:      :+:    :+:   */
+/*   wp_ll_cast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/10 01:41:14 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/10 18:48:57 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ll_int_cast(va_list arg)
+void	wp_ll_int_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	long long			output;
 
 	output = (long long)va_arg(arg, void*);
-	ft_putlonglong(output, 10, 1);
+	signed_d_wp(f, g, (int)output);
 }
 
-void	ll_oct_cast(va_list arg)
+void	wp_ll_oct_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putulonglong(output, 8, 1);
+	unsigned_ll_wp(f, g, output, 8);
 }
 
-void	ll_hex_cast(va_list arg)
+void	wp_ll_hex_cast(va_list arg, t_flags *f, t_wp *g)
 {
 	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putulonglong(output, 16, 1);
+	unsigned_ll_wp(f, g, output, 16);
 }
 
-void	ll_lhex_cast(va_list arg)
+void	wp_ll_lhex_cast(va_list arg, t_flags *f, t_wp *g)
 {
-	unsigned long long	output;
+	unsigned long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putlonglong_lc(output, 16, 1);
+	unsigned_ll_wp_lc(f, g, output, 16);
 }
 
-void	ll_uint_cast(va_list arg)
+void	wp_ll_uint_cast(va_list arg, t_flags *f, t_wp *g)
 {
-	unsigned long long	output;
+	unsigned long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
-	ft_putulonglong((unsigned long long)output, 10, 1);
+	unsigned_ll_wp(f, g, (unsigned long long)output, 10);
 }

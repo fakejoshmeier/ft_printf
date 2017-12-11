@@ -6,14 +6,18 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2017/12/03 13:51:07 by jmeier           ###   ########.fr        #
+#    Updated: 2017/12/10 16:02:05 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 FILES = ft_printf \
 		parse_flags parse_flags2 int_cast h_cast hh_cast l_cast ll_cast j_cast \
-		z_cast char_cast
+		z_cast char_cast parse_prec parse_prec2 parse_prec3 parse_prec4 \
+		w_funcs w_funcs2 w_int_cast w_h_cast w_hh_cast w_l_cast w_ll_cast \
+		w_j_cast w_z_cast w_char_cast wp_funcs wp_funcs2 wp_int_cast wp_h_cast \
+		wp_hh_cast wp_l_cast wp_ll_cast wp_j_cast wp_z_cast wp_char_cast \
+		space_saver freaking_wide
 
 LIBFT = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_isdigit ft_isprint ft_itoa ft_itoa_base ft_lstadd ft_lstdel \
@@ -28,7 +32,9 @@ LIBFT = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_isspace ft_sqrt ft_lstnodecheck get_next_line ft_free ft_realloc \
 		ft_putnbr_base ft_putnbr_base_fd ft_putnbr_base_lc ft_putunbr_base \
 		ft_putlonglong ft_putlonglong_lc ft_putulonglong ft_putunbr_base_fd \
-		ft_putlong ft_putlong_lc ft_putulong ft_putunbr_base_lc ft_putwstr
+		ft_putlong ft_putlong_lc ft_putulong ft_putunbr_base_lc ft_putwstr \
+		ft_isvalue ft_numlen ft_putchars ft_putnbrf ft_unumlen ft_longlen \
+		ft_ulonglen ft_ulonglonglen ft_longlonglen ft_putstrn
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))
