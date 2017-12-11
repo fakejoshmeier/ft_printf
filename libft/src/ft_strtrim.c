@@ -6,15 +6,15 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 23:31:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/10/05 16:33:08 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/10 21:13:44 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	blank_space_b(char *s)
+static int	blank_space_b(char *s)
 {
-	size_t a;
+	int		a;
 
 	a = 0;
 	while ((s[a]) && ft_isspace(s[a]))
@@ -22,9 +22,9 @@ static size_t	blank_space_b(char *s)
 	return (a);
 }
 
-static size_t	blank_space_e(char *s)
+static int	blank_space_e(char *s)
 {
-	size_t a;
+	int		a;
 
 	a = ft_strlen(s) - 1;
 	while (ft_isspace(s[a]))
@@ -34,8 +34,8 @@ static size_t	blank_space_e(char *s)
 
 char			*ft_strtrim(char const *s)
 {
-	size_t	a;
-	size_t	b;
+	int		a;
+	int		b;
 	size_t	i;
 	char	*str;
 
