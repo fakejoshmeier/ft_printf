@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2017/12/10 20:48:37 by jmeier           ###   ########.fr        #
+#    Updated: 2017/12/12 00:37:04 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ LIBFT = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_putlonglong ft_putlonglong_lc ft_putulonglong ft_putunbr_base_fd \
 		ft_putlong ft_putlong_lc ft_putulong ft_putunbr_base_lc ft_putwstr \
 		ft_isvalue ft_numlen ft_putchars ft_putnbrf ft_unumlen ft_longlen \
-		ft_ulonglen ft_ulonglonglen ft_longlonglen ft_putstrn ft_putull
+		ft_ulonglen ft_ulonglonglen ft_longlonglen ft_putstrn ft_putull \
+		ft_puthex ft_putlhex ft_putoct
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))

@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 23:02:49 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:17:59 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 00:48:13 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	signed_ll_w(t_all *f, long long output)
 		f->spess == 1 && output >= 0 ? ft_putchar(' ') : 0;
 		f->plus == 1 && output >= 0 ? ft_putchar('+') : 0;
 		output < 0 ? ft_putchar('-') : 0;
-		ft_putlong(output, 10, 1);
+		ft_putlonglong(output, 10, 1);
 		s_saver3(i, (int)output, f);
 	}
 	else
@@ -77,7 +77,7 @@ void	signed_ll_w(t_all *f, long long output)
 		f->spess == 1 && output >= 0 ? ft_putchar(' ') : 0;
 		f->plus == 1 && output >= 0 ? ft_putchar('+') : 0;
 		output < 0 ? ft_putchar('-') : 0;
-		ft_putlong(output, 10, 1);
+		ft_putlonglong(output, 10, 1);
 	}
 }
 
@@ -88,9 +88,11 @@ void	unsigned_w_lc(t_all *f, unsigned int output, int b)
 	i = ft_unumlen(output, b);
 	if (f->dash == 1)
 	{
-		f->hash == 1 && b == 8 ? ft_putchar('0') : 0;
-		f->hash == 1 && b == 16 ? ft_putstr("0x") : 0;
-		ft_putunbr_base_lc(output, b, 1);
+		f->hash == 1 && b == 8 && output != 0 ? ft_putchar('0') : 0;
+		f->hash == 1 && b == 16 && output != 0 ? ft_putstr("0x") : 0;
+		b == 8 ? ft_putoct(output) : 0;
+		b == 16 ? ft_putlhex(output) : 0;
+		b == 10 ? ft_putunbr_base(output, 10) : 0;
 		s_saver4(i, b, f);
 	}
 	else
@@ -99,7 +101,9 @@ void	unsigned_w_lc(t_all *f, unsigned int output, int b)
 		f->hash == 1 && b == 8 ? ft_putchar('0') : 0;
 		f->hash == 1 && b == 16 ? ft_putstr("0x") : 0;
 		f->zero == 1 ? s_saver4(i, b, f) : 0;
-		ft_putunbr_base_lc(output, b, 1);
+		b == 8 ? ft_putoct(output) : 0;
+		b == 16 ? ft_putlhex(output) : 0;
+		b == 10 ? ft_putunbr_base(output, 10) : 0;
 	}
 }
 

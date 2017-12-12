@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 22:36:45 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:19:31 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 00:51:38 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,4 @@ void	s_saver4(int i, int base, t_all *f)
 		else
 			ft_putchars(' ', f->width - i);
 	}
-}
-
-void	supa_free(t_all *f)
-{
-	free(f);
 }

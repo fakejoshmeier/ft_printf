@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:14:37 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 00:55:19 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int				ft_printf(const char *format, ...);
 /*
 ** Parse functions
 */
+
 void			parse_flags(va_list arg, int *i, const char *str);
 void			parse_hflag(va_list arg, int *i, const char *str);
 void			parse_hhflag(va_list arg, int *i, const char *str);
@@ -212,5 +213,4 @@ void			s_saver(int i, int output, char c, t_all *f);
 void			s_saver2(int i, int base, t_all *f);
 void			s_saver3(int i, int output, t_all *f);
 void			s_saver4(int i, int base, t_all *f);
-void			supa_free(t_all *f);
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/09 23:02:49 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:18:21 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 00:47:50 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,22 @@ void	unsigned_w(t_all *f, unsigned int output, int b)
 	i = ft_unumlen(output, b);
 	if (f->dash == 1)
 	{
-		f->hash == 1 && b == 8 ? ft_putchar('0') : 0;
-		f->hash == 1 && b == 16 ? ft_putstr("0X") : 0;
-		ft_putunbr_base(output, b);
+		f->hash == 1 && b == 8 && output != 0 ? ft_putchar('0') : 0;
+		f->hash == 1 && b == 16 && output != 0 ? ft_putstr("0X") : 0;
+		b == 8 ? ft_putoct(output) : 0;
+		b == 16 ? ft_puthex(output) : 0;
+		b == 10 ? ft_putunbr_base(output, 10) : 0;
 		s_saver4(i, b, f);
 	}
 	else
 	{
 		f->zero == 0 ? s_saver4(i, b, f) : 0;
-		f->hash == 1 && b == 8 ? ft_putchar('0') : 0;
-		f->hash == 1 && b == 16 ? ft_putstr("0X") : 0;
+		f->hash == 1 && b == 8 && output != 0 ? ft_putchar('0') : 0;
+		f->hash == 1 && b == 16 && output != 0 ? ft_putstr("0X") : 0;
 		(f->zero) ? s_saver4(i, b, f) : 0;
-		ft_putunbr_base(output, b);
+		b == 8 ? ft_putoct(output) : 0;
+		b == 16 ? ft_puthex(output) : 0;
+		b == 10 ? ft_putunbr_base(output, 10) : 0;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:33:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 00:20:18 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 01:01:05 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	width_parse(const char *str, int *i, t_all *f)
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
 		if (str[*i] >= '0' && str[*i] <= '9')
-			f->width = f->width * 10 + str[*i] + '0';
+			f->width = f->width * 10 + str[*i] - '0';
 		*i += 1;
 	}
 }
@@ -27,7 +27,7 @@ void	prec_parse(const char *str, int *i, t_all *f)
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
 		if (str[*i] >= '0' && str[*i] <= '9')
-			f->prec = f->prec * 10 + str[*i] + '0';
+			f->prec = f->prec * 10 + str[*i] - '0';
 		*i += 1;
 	}
 }
@@ -54,7 +54,8 @@ void	w_parse(const char *str, int *i, va_list arg, t_all *f)
 	str[*i] == 'U' ? w_l_uint_cast(arg, f) : 0;
 	str[*i] == 'C' ? w_elsie_cast(arg, f) : 0;
 	str[*i] == 'S' ? w_loss_cast(arg, f) : 0;
-	supa_free(f);
+	free(f);
+	f = NULL;
 }
 
 /*
@@ -78,7 +79,8 @@ void	wp_parse(const char *str, int *i, va_list arg, t_all *f)
 	str[*i] == 'O' ? wp_l_oct_cast(arg, f) : 0;
 	str[*i] == 'D' ? wp_l_int_cast(arg, f) : 0;
 	str[*i] == 'U' ? wp_l_uint_cast(arg, f) : 0;
-	supa_free(f);
+	free(f);
+	f = NULL;
 }
 
 void	more_parsing(const char *str, int *i, va_list arg, t_all *f)
