@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:35:46 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/11 23:38:42 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	parse_extra_flags(const char *str, int *i, va_list arg)
 	str[*i] == ' ' ? f->spess = 1 : 0;
 	str[*i] == '0' ? f->zero = 1 : 0;
 	str[*i] == '#' ? f->hash = 1 : 0;
-	str[*i] > '0' && str[*i] <= '9' ? width_parse(str, i, f): 0;
+	(str[*i] > '0' && str[*i] <= '9') ? width_parse(str, i, f): 0;
 	if (str[*i] == '.')
 	{
 		prec_flag = 1;

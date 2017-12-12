@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:33:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:35:39 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/11 23:39:53 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	more_parsing(const char *str, int *i, va_list arg, t_all *f)
 	str[*i] == ' ' ? f->spess = 1 : 0;
 	str[*i] == '0' ? f->zero = 1 : 0;
 	str[*i] == '#' ? f->hash = 1 : 0;
-	str[*i] > '0' && str[*i] <= '9' ? width_parse(str, i, f) : 0;
+	(str[*i] > '0' && str[*i] <= '9') ? width_parse(str, i, f) : 0;
 	str[*i] == '.' ? prec_flag = 1, prec_parse(str, i, f) : 0;
 	if (str[*i + 1] == ' ' || str[*i + 1] == '#' || str[*i + 1] == '-'
 		|| str[*i + 1] == '+' || str[*i + 1] == '0' || str[*i] == '.' ||
