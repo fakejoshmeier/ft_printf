@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:33:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:39:53 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/11 23:42:01 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	width_parse(const char *str, int *i, t_all *f)
 	{
 		if (str[*i] >= '0' && str[*i] <= '9')
 			f->width = f->width * 10 + (str[*i] - '0');
+		*i += 1;
 	}
 }
 
