@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 02:01:55 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/10 19:10:06 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/11 21:09:28 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_putwsn(wchar_t *s, int n)
 	}
 }
 
-void	wchar_wp(t_flags *f, t_wp *g, wchar_t *out)
+void	wchar_wp(t_all *f, wchar_t *out)
 {
 	char	*n;
 	int		i;
@@ -52,26 +52,26 @@ void	wchar_wp(t_flags *f, t_wp *g, wchar_t *out)
 	out != NULL ? i = ft_widelen(out) : 0;
 	if (f->dash)
 	{
-		if (g->prec != 0)
-			out != NULL ? ft_putwsn(out, g->prec) : ft_putstrn(n, g->prec);
-		if (g->prec >= i)
-			ft_putchars(' ', g->width - i);
-		else if (i > g->prec)
-			f->zero ? ft_putchars('0', g->width - g->prec) :
-				ft_putchars(' ', g->width - g->prec);
+		if (f->prec != 0)
+			out != NULL ? ft_putwsn(out, f->prec) : ft_putstrn(n, f->prec);
+		if (f->prec >= i)
+			ft_putchars(' ', f->width - i);
+		else if (i > f->prec)
+			f->zero ? ft_putchars('0', f->width - f->prec) :
+				ft_putchars(' ', f->width - f->prec);
 	}
 	else if (!f->dash)
 	{
-		if (g->prec >= i)
-			ft_putchars(' ', g->width - i);
+		if (f->prec >= i)
+			ft_putchars(' ', f->width - i);
 		else
-			ft_putchars(' ', g->width - g->prec);
-		if (g->prec != 0)
-			out != NULL ? ft_putwsn(out, g->prec) : ft_putstrn(n, g->prec);
+			ft_putchars(' ', f->width - f->prec);
+		if (f->prec != 0)
+			out != NULL ? ft_putwsn(out, f->prec) : ft_putstrn(n, f->prec);
 	}
 }
 
-void	wchar_w(t_flags *f, t_wp *g, wchar_t *output)
+void	wchar_w(t_all *f, wchar_t *output)
 {
 	char	*n;
 	int		i;
@@ -82,11 +82,11 @@ void	wchar_w(t_flags *f, t_wp *g, wchar_t *output)
 	if (f->dash)
 	{
 		output != NULL ? ft_putwstr(output) : ft_putstr(n);
-		ft_putchars(' ', g->width - i);
+		ft_putchars(' ', f->width - i);
 	}
 	else
 	{
-		ft_putchars(' ', g->width - i);
+		ft_putchars(' ', f->width - i);
 		output != NULL ? ft_putwstr(output) : ft_putstr(n);
 	}
 }
