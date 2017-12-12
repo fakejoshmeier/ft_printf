@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:33:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 01:01:05 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 01:44:56 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	width_parse(const char *str, int *i, t_all *f)
 {
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
-		if (str[*i] >= '0' && str[*i] <= '9')
-			f->width = f->width * 10 + str[*i] - '0';
+		f->width = f->width * 10 + str[*i] - '0';
 		*i += 1;
 	}
 }
@@ -26,8 +25,7 @@ void	prec_parse(const char *str, int *i, t_all *f)
 {
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
-		if (str[*i] >= '0' && str[*i] <= '9')
-			f->prec = f->prec * 10 + str[*i] - '0';
+		f->prec = f->prec * 10 + str[*i] - '0';
 		*i += 1;
 	}
 }

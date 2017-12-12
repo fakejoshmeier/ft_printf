@@ -6,18 +6,14 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2017/12/12 00:37:04 by jmeier           ###   ########.fr        #
+#    Updated: 2017/12/12 10:48:35 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 FILES = ft_printf \
 		parse_flags parse_flags2 int_cast h_cast hh_cast l_cast ll_cast j_cast \
-		z_cast char_cast parse_prec parse_prec2 parse_prec3 parse_prec4 \
-		w_funcs w_funcs2 w_int_cast w_h_cast w_hh_cast w_l_cast w_ll_cast \
-		w_j_cast w_z_cast w_char_cast wp_funcs wp_funcs2 wp_int_cast wp_h_cast \
-		wp_hh_cast wp_l_cast wp_ll_cast wp_j_cast wp_z_cast wp_char_cast \
-		space_saver freaking_wide
+		z_cast char_cast s_padding misc
 
 LIBFT = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_isdigit ft_isprint ft_itoa ft_itoa_base ft_lstadd ft_lstdel \

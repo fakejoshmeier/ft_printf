@@ -6,13 +6,13 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 00:34:03 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 00:49:27 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 09:39:09 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putlhex(unsigned int n)
+void	ft_putlhex(unsigned long long n)
 {
 	if (n > 15)
 	{

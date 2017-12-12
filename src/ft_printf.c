@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:38:42 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 12:38:29 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,30 @@
 ** just werk for a project like this.
 */
 
-void	parse_escape(int *i, const char *str)
+void	reset_struct(t_all *f)
+{
+	f->dash = 0;
+	f->zero = 0;
+	f->plus = 0;
+	f->hash = 0;
+	f->spess = 0;
+	f->width = 0;
+	f->prec = 0;
+	f->prec_flag = 0;
+	f->wid_flag = 0;
+}
+
+void	suite(const char *str, int *i, va_list arg, t_all *f)
+{
+	*i += 1;
+	parse_format(str, i, f);
+	parse_width(str, i, arg, f);
+	parse_prec(str, i, arg, f);
+	parse_flags(arg, i, str, f);
+	reset_struct(f);
+}
+
+void	parse_escape(int *i, const char *str, t_all *f)
 {
 	*i += 1;
 	str[*i] == 'a' ? ft_putchar('\a') : 0;
@@ -40,84 +63,56 @@ void	parse_escape(int *i, const char *str)
 	str[*i] == '\'' ? ft_putchar('\'') : 0;
 	str[*i] == 'v' ? ft_putchar('\v') : 0;
 	str[*i] == '?' ? ft_putchar('\?') : 0;
+	f->adr += 1;
 }
 
-void	parse_extra_flags(const char *str, int *i, va_list arg)
+void	parse_flags(va_list arg, int *i, const char *str, t_all *f)
 {
-	t_all	*f;
-	int		prec_flag;
-
-	f = (t_all *)malloc(sizeof(t_all *));
-	prec_flag = 0;
-	str[*i] == '+' ? f->plus = 1 : 0;
-	str[*i] == '-' ? f->dash = 1 : 0;
-	str[*i] == ' ' ? f->spess = 1 : 0;
-	str[*i] == '0' ? f->zero = 1 : 0;
-	str[*i] == '#' ? f->hash = 1 : 0;
-	(str[*i] > '0' && str[*i] <= '9') ? width_parse(str, i, f): 0;
-	if (str[*i] == '.')
-	{
-		prec_flag = 1;
-		prec_parse(str, i, f);
-	}
-	if (str[*i + 1] == ' ' || str[*i + 1] == '#' || str[*i + 1] == '-'
-		|| str[*i + 1] == '+' || str[*i + 1] == '0' || str[*i] == '.' ||
-		(str[*i + 1] > '0' && str[*i + 1] <= '9'))
-		more_parsing(str, i, arg, f);
-	else
-		prec_flag == 1 ? wp_parse(str, i, arg, f) : w_parse(str, i, arg, f);
-}
-
-void	parse_flags(va_list arg, int *i, const char *str)
-{
-	*i += 1;
-	str[*i] == 'd' ? int_cast(arg) : 0;
-	str[*i] == 'i' ? int_cast(arg) : 0;
-	str[*i] == 'o' ? oct_cast(arg) : 0;
-	str[*i] == 'x' ? lhex_cast(arg) : 0;
-	str[*i] == 'X' ? hex_cast(arg) : 0;
-	str[*i] == 'u' ? uint_cast(arg) : 0;
-	str[*i] == 'c' ? char_cast(arg) : 0;
-	str[*i] == 's' ? str_cast(arg) : 0;
-	str[*i] == '%' ? ft_putchar('%') : 0;
-	str[*i] == 'j' ? parse_jflag(arg, i, str) : 0;
-	str[*i] == 'z' ? parse_zflag(arg, i, str) : 0;
-	(str[*i] == 'h' && str[*i + 1] != 'h') ? parse_hflag(arg, i, str) : 0;
-	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i, str) : 0;
-	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i, str) : 0;
-	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i, str) : 0;
-	str[*i] == 'O' ? l_oct_cast(arg) : 0;
-	str[*i] == 'D' ? l_int_cast(arg) : 0;
-	str[*i] == 'U' ? l_uint_cast(arg) : 0;
-	str[*i] == 'C' ? elsie_cast(arg) : 0;
-	str[*i] == 'S' ? loss_cast(arg) : 0;
-	if (str[*i] == ' ' || str[*i] == '#' || str[*i] == '-' || str[*i] == '+' ||
-		str[*i] == '0' || (str[*i] > '0' && str[*i] <= '9') || str[*i] == '.')
-		parse_extra_flags(str, i, arg);
+	str[*i] == 'd' ? int_cast(arg, f) : 0;
+	str[*i] == 'i' ? int_cast(arg, f) : 0;
+	str[*i] == 'o' ? oct_cast(arg, f) : 0;
+	str[*i] == 'x' ? lhex_cast(arg, f) : 0;
+	str[*i] == 'X' ? hex_cast(arg, f) : 0;
+	str[*i] == 'u' ? uint_cast(arg, f) : 0;
+	str[*i] == 'c' ? char_cast(arg, f) : 0;
+	str[*i] == 's' ? str_cast(arg, f) : 0;
+	str[*i] == '%' ? percent(f) : 0;
+	str[*i] == 'j' ? parse_jflag(arg, i, str, f) : 0;
+	str[*i] == 'z' ? parse_zflag(arg, i, str, f) : 0;
+	(str[*i] == 'h' && str[*i + 1] != 'h') ? parse_hflag(arg, i, str, f) : 0;
+	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i, str, f) : 0;
+	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i, str, f) : 0;
+	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i, str, f) : 0;
+	str[*i] == 'O' ? l_oct_cast(arg, f) : 0;
+	str[*i] == 'D' ? l_int_cast(arg, f) : 0;
+	str[*i] == 'U' ? l_uint_cast(arg, f) : 0;
+	str[*i] == 'C' ? elsie_cast(arg, f) : 0;
+	str[*i] == 'S' ? loss_cast(arg, f) : 0;
 }
 
 int		ft_printf(const char *format, ...)
 {
 	va_list	arg;
+	t_all	*f;
 	int		pos;
 
 	ASSERT(format);
 	va_start(arg, format);
-	if (!(ft_strchr(format, '%')))
-	{
-		ft_putstr((char *)format);
-		return (0);
-	}
 	pos = -1;
+	f = (t_all *)ft_memalloc(sizeof(t_all));
 	while (format[++pos])
 	{
 		if (format[pos] == '%')
-			parse_flags(arg, &pos, format);
+			suite(format, &pos, arg, f);
 		else if (format[pos] == '\\')
-			parse_escape(&pos, format);
+			parse_escape(&pos, format, f);
 		else
+		{
 			ft_putchar(format[pos]);
+			f->adr += 1;
+		}
 	}
+	free(f);
 	va_end(arg);
 	return (0);
 }

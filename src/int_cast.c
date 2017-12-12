@@ -6,48 +6,153 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/11/29 11:02:13 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 09:52:25 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	int_cast(va_list arg)
+void	int_cast(va_list arg, t_all *f)
 {
-	int				output;
+	char				*prec_pad;
+	char				*width_pad;
+	char				*prefix;
+	long long			output;
 
-	output = va_arg(arg, int);
-	ft_putnbr(output);
+	output = (long long)va_arg(arg, void*);
+	prec_pad = sign_prec_parse(output, f);
+	width_pad = sign_width_parse(output, f);
+	prefix = prefix_parse((int)output, 10, 0, f);
+	if (f->dash == 1)
+	{
+		ft_putstr(prefix);
+		ft_putstr(prec_pad);
+		ft_putnbrf((int)output);
+		ft_putstr(width_pad);
+	}
+	else
+	{
+		f->zero == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prefix);
+		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prec_pad);
+		ft_putnbrf((int)output);
+	}
+	supa_free(prec_pad, width_pad, prefix);
 }
 
-void	oct_cast(va_list arg)
+void	oct_cast(va_list arg, t_all *f)
 {
-	unsigned int	output;
+	char				*prec_pad;
+	char				*width_pad;
+	char				*prefix;
+	unsigned int		output;
 
 	output = va_arg(arg, unsigned int);
-	ft_putunbr_base(output, 8);
+	prec_pad = prec_parse((unsigned long long)output, f, 8);
+	width_pad = width_parse((unsigned long long)output, f, 8);
+	prefix = prefix_parse((int)output, 8, 0, f);
+	if (f->dash == 1)
+	{
+		ft_putstr(prefix);
+		ft_putstr(prec_pad);
+		ft_putoct(output);
+		ft_putstr(width_pad);
+	}
+	else
+	{
+		f->zero == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prefix);
+		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prec_pad);
+		ft_putoct(output);
+	}
+	supa_free(prec_pad, width_pad, prefix);
 }
 
-void	hex_cast(va_list arg)
+void	hex_cast(va_list arg, t_all *f)
 {
-	unsigned int	output;
+	char				*prec_pad;
+	char				*width_pad;
+	char				*prefix;
+	unsigned int		output;
 
 	output = va_arg(arg, unsigned int);
-	ft_putunbr_base(output, 16);
+	prec_pad = prec_parse((unsigned long long)output, f, 16);
+	width_pad = width_parse((unsigned long long)output, f, 16);
+	prefix = prefix_parse((int)output, 16, 1, f);
+	if (f->dash == 1)
+	{
+		ft_putstr(prefix);
+		ft_putstr(prec_pad);
+		ft_puthex(output);
+		ft_putstr(width_pad);
+	}
+	else
+	{
+		f->zero == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prefix);
+		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prec_pad);
+		ft_puthex(output);
+	}
+	supa_free(prec_pad, width_pad, prefix);
 }
 
-void	lhex_cast(va_list arg)
+void	lhex_cast(va_list arg, t_all *f)
 {
-	unsigned int	output;
+	char				*prec_pad;
+	char				*width_pad;
+	char				*prefix;
+	unsigned int		output;
 
 	output = va_arg(arg, unsigned int);
-	ft_putunbr_base_lc(output, 16, 1);
+	prec_pad = prec_parse((unsigned long long)output, f, 16);
+	width_pad = width_parse((unsigned long long)output, f, 16);
+	prefix = prefix_parse((int)output, 16, 0, f);
+	if (f->dash == 1)
+	{
+		ft_putstr(prefix);
+		ft_putstr(prec_pad);
+		ft_putlhex(output);
+		ft_putstr(width_pad);
+	}
+	else
+	{
+		f->zero == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prefix);
+		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prec_pad);
+		ft_putlhex(output);
+	}
+	supa_free(prec_pad, width_pad, prefix);
 }
 
-void	uint_cast(va_list arg)
+void	uint_cast(va_list arg, t_all *f)
 {
-	unsigned int	output;
+	char				*prec_pad;
+	char				*width_pad;
+	char				*prefix;
+	unsigned int		output;
 
 	output = va_arg(arg, unsigned int);
-	ft_putunbr_base(output, 10);
+	prec_pad = prec_parse((unsigned long long)output, f, 10);
+	width_pad = width_parse((unsigned long long)output, f, 10);
+	prefix = prefix_parse((int)output, 10, 0, f);
+	if (f->dash == 1)
+	{
+		ft_putstr(prefix);
+		ft_putstr(prec_pad);
+		ft_putunbr_base(output, 10);
+		ft_putstr(width_pad);
+	}
+	else
+	{
+		f->zero == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prefix);
+		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
+		ft_putstr(prec_pad);
+		ft_putunbr_base(output, 10);
+	}
+	supa_free(prec_pad, width_pad, prefix);
 }

@@ -6,13 +6,13 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 00:31:40 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 00:32:15 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 08:51:31 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putoct(unsigned int n)
+void	ft_putoct(unsigned long long n)
 {
 	if (n > 7)
 	{
