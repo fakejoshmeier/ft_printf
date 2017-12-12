@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 19:33:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:17:17 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/11 23:35:39 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	prec_parse(const char *str, int *i, t_all *f)
 
 void	w_parse(const char *str, int *i, va_list arg, t_all *f)
 {
+	*i += 1;
 	str[*i] == 'd' ? w_int_cast(arg, f) : 0;
 	str[*i] == 'i' ? w_int_cast(arg, f) : 0;
 	str[*i] == 'o' ? w_oct_cast(arg, f) : 0;

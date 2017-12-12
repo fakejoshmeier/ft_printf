@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:34:05 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/11 23:35:46 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ void	parse_flags(va_list arg, int *i, const char *str)
 	str[*i] == 'U' ? l_uint_cast(arg) : 0;
 	str[*i] == 'C' ? elsie_cast(arg) : 0;
 	str[*i] == 'S' ? loss_cast(arg) : 0;
-//	if (str[*i] == ' ' || str[*i] == '#' || str[*i] == '-' || str[*i] == '+' ||
-//		str[*i] == '0' || (str[*i] > '0' && str[*i] <= '9') || str[*i] == '.')
-//		parse_extra_flags(str, i, arg);
+	if (str[*i] == ' ' || str[*i] == '#' || str[*i] == '-' || str[*i] == '+' ||
+		str[*i] == '0' || (str[*i] > '0' && str[*i] <= '9') || str[*i] == '.')
+		parse_extra_flags(str, i, arg);
 }
 
 int		ft_printf(const char *format, ...)
