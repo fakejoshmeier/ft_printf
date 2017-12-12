@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 12:52:12 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/08 20:11:03 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/11 23:49:21 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 void	ft_putnbrf(int n)
 {
-	int		p;
-	char	*c;
-
-	p = 1;
-	c = "0123456789ABCDEFHIJKLMNOPQRSTUVWXYZ";
-	while ((n / p) >= 10 || (n / p) <= -10)
-		p *= 10;
-	while (p > 0)
+	if (n < 0)
+		n *= -1;
+	if (n == -2147483648)
 	{
-		ft_putchar_fd(c[(n / p) % 10], 1);
-		p /= 10;
+		ft_putchar('2');
+		n % 1000000000;
+		n *= -1;
 	}
+	if (n >= 10)
+	{
+		ft_putnbrf(n / 10);
+		ft_putnbrf(n % 10);
+	}
+	else
+		ft_putchar(n + '0');
 }
+	}
