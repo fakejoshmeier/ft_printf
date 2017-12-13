@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 16:56:38 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 17:01:51 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 18:43:18 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	*prefix_parse(unsigned int outpu, int base, int caps, t_all *f)
 	else
 		new = NULL;
 	return (new);
+}
 
 char	*sign_prefix_parse(int output, int base, int caps, t_all *f)
 {
