@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 20:12:49 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 21:32:03 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ll_oct_cast(va_list arg, t_all *f)
 	char				*prec_pad;
 	char				*width_pad;
 	char				*prefix;
-	unsigned long long 	output;
+	unsigned long long	output;
 
 	output = (unsigned long long)va_arg(arg, void*);
 	prec_pad = prec_parse(output, f, 8);

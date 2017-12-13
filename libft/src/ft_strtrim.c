@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 23:31:34 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/10 21:13:44 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 21:35:47 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	blank_space_e(char *s)
 	return (a);
 }
 
-char			*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
 	int		a;
 	int		b;

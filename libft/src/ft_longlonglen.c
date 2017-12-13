@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 16:19:51 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 21:05:05 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 21:33:44 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_longlonglen(long long n, int base)
 {
-	int 		len;
+	int			len;
 	long long	nb;
 
 	len = 0;

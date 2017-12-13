@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 12:55:47 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 16:11:01 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 21:31:13 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ char	*str_prec(char *output, t_all *f)
 	char	*x;
 
 	x = "(null)";
-	i = output != NULL ?  ft_strlen(output) : ft_strlen(x);
-	len = i <=  f->prec ? i : f->prec;
+	i = output != NULL ? ft_strlen(output) : ft_strlen(x);
+	len = i <= f->prec ? i : f->prec;
 	n = ft_strnew(len);
 	f->adr += len;
 	n = output != NULL ? ft_strncpy(n, output, len) : ft_strncpy(n, x, len);

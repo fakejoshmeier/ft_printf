@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 02:01:55 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 16:25:39 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 21:31:31 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ wchar_t	*wchar_prec(wchar_t *output, t_all *f)
 	if (f->prec_flag == 0)
 		return (NULL);
 	x = "(null)";
-	i = output != NULL ?  ft_widelen(output) : 6;
-	len = i <=  f->prec ? i : f->prec;
+	i = output != NULL ? ft_widelen(output) : 6;
+	len = i <= f->prec ? i : f->prec;
 	n = ft_wstrnew(len);
 	f->adr += len;
 	n = output != NULL ? ft_wstrncpy(n, output, len) : '\0';
