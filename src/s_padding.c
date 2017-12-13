@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 05:10:43 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 12:35:59 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 16:53:01 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*prefix_parse(int output, int base, int caps, t_all *f)
 		new[0] = '0';
 		f->adr += 1;
 	}
-	else if (f->spess == 1 || f->plus == 1 || output < 0)
+	else if (f->spess == 1 || f->plus == 1 || (output < 0 && f->hash == 0)
 	{
 		new = ft_strnew(1);
 		f->spess == 1 && output >= 0 ? new[0] = ' ' : 0;
