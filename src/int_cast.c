@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 21:11:12 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 21:17:41 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	int_cast(va_list arg, t_all *f)
 	char			*prec_pad;
 	char			*width_pad;
 	char			*prefix;
-	long long		output;
+	int				output;
 
-	output = (long long)va_arg(arg, void*);
+	output = va_arg(arg, int);
 	prec_pad = sign_prec_parse(output, f);
 	width_pad = sign_width_parse(output, f);
-	prefix = sign_prefix_parse((int)output, 10, 0, f);
+	prefix = sign_prefix_parse(output, 10, 0, f);
 	if (f->dash == 1)
 	{
 		ft_putstr(prefix);
