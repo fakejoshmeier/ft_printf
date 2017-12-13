@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 19:35:47 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 19:38:26 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ll_int_cast(va_list arg, t_all *f)
 	{
 		ft_putstr(prefix);
 		ft_putstr(prec_pad);
-		ft_putnbr_base((int)output, 10, 1);
+		ft_putnbr_base_fd((int)output, 10, 1);
 		ft_putstr(width_pad);
 	}
 	else
@@ -36,7 +36,7 @@ void	ll_int_cast(va_list arg, t_all *f)
 		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
-		ft_putnbr_base((int)output, 10, 1);
+		ft_putnbr_base_fd((int)output, 10, 1);
 	}
 	supa_free(prec_pad, width_pad, prefix);
 }
