@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 20:22:50 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 22:11:20 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char			*char_width(char output, t_all *f);
 char			*str_prec(char *output, t_all *f);
 char			*str_width(char *output, t_all *f);
 char			*prefix_parse(unsigned int outpu, int base, int caps, t_all *f);
-char			*sign_prefix_parse(int output, int base, int caps, t_all *f);
+char			*sign_prefix_parse(int output, t_all *f);
 char			*sign_width_parse(long long output, t_all *f);
 char			*width_parse(unsigned long long output, t_all *f, int base);
 char			*prec_parse(unsigned long long output, t_all *f, int b);
