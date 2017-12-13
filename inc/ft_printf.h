@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 12:38:46 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 16:26:01 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,6 @@ void			parse_escape(int *i, const char *str, t_all *f);
 void			parse_width(const char *str, int *i, va_list arg, t_all *f);
 void			parse_prec(const char *str, int *i, va_list arg, t_all *f);
 void			parse_format(const char *str, int *i, t_all *f);
-char			*prefix_parse(int output, int base, int caps, t_all *f);
-char			*sign_width_parse(long long output, t_all *f);
-char			*width_parse(unsigned long long output, t_all *f, int base);
-char			*prec_parse(unsigned long long output, t_all *f, int b);
-char			*sign_prec_parse(long long output, t_all *f);
-
-void			supa_free(char *s1, char *s2, char *s3);
-int				isflag(char c);
-void			percent(t_all *f);
 /*
 ** Casting couch ;)
 */
@@ -101,32 +92,23 @@ void			loss_cast(va_list arg, t_all *f);
 /*
 ** Precision and Width calculations and application
 */
-void			signed_d_wp(t_all *f, int output);
-void			unsigned_wp(t_all *f, unsigned int output, int b);
-void			unsigned_wp_lc(t_all *f, unsigned int output, int b);
-void			signed_l_wp(t_all *f, long output);
-void			unsigned_l_wp(t_all *f, unsigned long output, int b);
-void			unsigned_l_wp_lc(t_all *f, unsigned long output, int b);
-void			signed_ll_wp(t_all *f, long long output);
-void			unsigned_ll_wp(t_all *f, unsigned long long output, int b);
-void			unsigned_ll_wp_lc(t_all *f, unsigned long long output, int b);
-void			char_wp(t_all *f, char *out);
-void			wchar_wp(t_all *f, wchar_t *out);
-void			signed_w(t_all *f, int output);
-void			signed_l_w(t_all *f, long output);
-void			signed_ll_w(t_all *f, long long output);
-void			unsigned_w(t_all *f, unsigned int output, int b);
-void			unsigned_l_w(t_all *f, unsigned long output, int b);
-void			unsigned_ll_w(t_all *f, unsigned long long output, int b);
-void			unsigned_w_lc(t_all *f, unsigned int output, int b);
-void			unsigned_l_w_lc(t_all *f, unsigned long output, int b);
-void			unsigned_ll_w_lc(t_all *f, unsigned long long output, int b);
-void			char_w(t_all *f, char *output);
-void			wchar_w(t_all *f, wchar_t *output);
-void			ft_putwsn(wchar_t *s, int n);
+void			char_prec(char output, t_all *f);
+char			*char_width(char output, t_all *f);
+char			*str_prec(char *output, t_all *f);
+char			*str_width(char *output, t_all *f);
+char			*prefix_parse(int output, int base, int caps, t_all *f);
+char			*sign_width_parse(long long output, t_all *f);
+char			*width_parse(unsigned long long output, t_all *f, int base);
+char			*prec_parse(unsigned long long output, t_all *f, int b);
+char			*sign_prec_parse(long long output, t_all *f);
+wchar_t			*ft_wstrncpy(wchar_t *dst, wchar_t *src, size_t n);
+wchar_t			*wchar_prec(wchar_t *output, t_all *f);
+char			*wchar_width(wchar_t *out, t_all *f);
+wchar_t			*ft_wstrnew(int n);
+void			pita(wchar_t *pita);
+void			supa_free(char *s1, char *s2, char *s3);
+void			percent(t_all *f);
 int				ft_widelen(wchar_t *s);
-void			s_saver(int i, int output, char c, t_all *f);
-void			s_saver2(int i, int base, t_all *f);
-void			s_saver3(int i, int output, t_all *f);
-void			s_saver4(int i, int base, t_all *f);
+int				isflag(char c);
+
 #endif

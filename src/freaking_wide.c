@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 02:01:55 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 21:09:28 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 16:25:39 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,71 +22,74 @@ int		ft_widelen(wchar_t *s)
 	return (i);
 }
 
-void	ft_putwsn(wchar_t *s, int n)
+wchar_t	*ft_wstrnew(int n)
+{
+	wchar_t	*str;
+
+	str = (wchar_t *)malloc(sizeof(wchar_t) * n + 1);
+	if (!str)
+		return (NULL);
+	ft_bzero(str, n + 1);
+	return (str);
+}
+
+wchar_t	*ft_wstrncpy(wchar_t *dst, wchar_t *src, size_t n)
 {
 	int		i;
 
 	i = -1;
-	if (s)
+	while (++i < (int)n)
 	{
-		if (ft_widelen(s) < n)
-		{
-			while (++i <= n)
-				write(1, &s[i], 1);
-		}
+		if (src[i])
+			dst[i] = src[i];
 		else
 		{
-			while (s[++i])
-				write(1, &s[i], 1);
+			while (i < (int)n)
+				dst[i++] = '\0';
 		}
 	}
+	return (dst);
 }
 
-void	wchar_wp(t_all *f, wchar_t *out)
+wchar_t	*wchar_prec(wchar_t *output, t_all *f)
 {
-	char	*n;
 	int		i;
+	int		len;
+	wchar_t	*n;
+	char	*x;
+	char	*y;
 
-	n = "(null)";
-	out == NULL ? i = 6 : 0;
-	out != NULL ? i = ft_widelen(out) : 0;
-	if (f->dash)
+	if (f->prec_flag == 0)
+		return (NULL);
+	x = "(null)";
+	i = output != NULL ?  ft_widelen(output) : 6;
+	len = i <=  f->prec ? i : f->prec;
+	n = ft_wstrnew(len);
+	f->adr += len;
+	n = output != NULL ? ft_wstrncpy(n, output, len) : '\0';
+	if (n == '\0')
 	{
-		if (f->prec != 0)
-			out != NULL ? ft_putwsn(out, f->prec) : ft_putstrn(n, f->prec);
-		if (f->prec >= i)
-			ft_putchars(' ', f->width - i);
-		else if (i > f->prec)
-			f->zero ? ft_putchars('0', f->width - f->prec) :
-				ft_putchars(' ', f->width - f->prec);
+		y = ft_strnew(len);
+		y = ft_strncpy(y, x, len);
+		ft_putstr(y);
+		free(y);
+		y = NULL;
 	}
-	else if (!f->dash)
-	{
-		if (f->prec >= i)
-			ft_putchars(' ', f->width - i);
-		else
-			ft_putchars(' ', f->width - f->prec);
-		if (f->prec != 0)
-			out != NULL ? ft_putwsn(out, f->prec) : ft_putstrn(n, f->prec);
-	}
+	return (n);
 }
 
-void	wchar_w(t_all *f, wchar_t *output)
+char	*wchar_width(wchar_t *out, t_all *f)
 {
-	char	*n;
+	char	*new;
 	int		i;
+	int		len;
 
-	output != NULL ? i = ft_widelen(output) : 0;
-	output == NULL ? i = 6 : 0;
-	n = "(null)";
-	if (f->dash)
-	{
-		output != NULL ? ft_putwstr(output) : ft_putstr(n);
-		ft_putchars(' ', f->width - i);
-	}
-	else
-	{
-		ft_putchars(' ', f->width - i);
-		output != NULL ? ft_putwstr(output) : ft_putstr(n);
-	}
+	if (f->wid_flag == 0)
+		return (NULL);
+	i = ft_widelen(out);
+	len = f->width > i ? f->width - i : 0;
+	new = ft_strnew(len);
+	ft_memset(new, ' ', len);
+	f->adr += len;
+	return (new);
 }
