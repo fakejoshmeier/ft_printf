@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 12:38:29 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 20:04:57 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	parse_flags(va_list arg, int *i, const char *str, t_all *f)
 	str[*i] == '%' ? percent(f) : 0;
 	str[*i] == 'j' ? parse_jflag(arg, i, str, f) : 0;
 	str[*i] == 'z' ? parse_zflag(arg, i, str, f) : 0;
+	str[*i] == 'p' ? address(arg, f) : 0;
 	(str[*i] == 'h' && str[*i + 1] != 'h') ? parse_hflag(arg, i, str, f) : 0;
 	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i, str, f) : 0;
 	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i, str, f) : 0;
@@ -88,6 +89,7 @@ void	parse_flags(va_list arg, int *i, const char *str, t_all *f)
 	str[*i] == 'U' ? l_uint_cast(arg, f) : 0;
 	str[*i] == 'C' ? elsie_cast(arg, f) : 0;
 	str[*i] == 'S' ? loss_cast(arg, f) : 0;
+	str[*i] == 'n' ? ntame(f) : 0;
 }
 
 int		ft_printf(const char *format, ...)

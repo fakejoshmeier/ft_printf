@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 17:02:30 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 20:07:39 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,12 @@ void			char_cast(va_list arg, t_all *f);
 void			str_cast(va_list arg, t_all *f);
 void			elsie_cast(va_list arg, t_all *f);
 void			loss_cast(va_list arg, t_all *f);
+void			address(va_list arg, t_all *f);
+void			ntame(t_all *f);
 /*
 ** Precision and Width calculations and application
 */
+void			putadr(unsigned long n, t_all *f);
 void			char_prec(char output, t_all *f);
 char			*char_width(char output, t_all *f);
 char			*str_prec(char *output, t_all *f);
