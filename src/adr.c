@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 19:47:02 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 20:22:11 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 20:24:52 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,4 @@ void	ntame(va_list arg, t_all *f)
 	ft_putnbr(f->adr);
 	f->adr += (ft_numlen(f->adr, 10));
 	f->adr += (ft_numlen(skip, 10));
-	&f->adr = &skip;
 }
