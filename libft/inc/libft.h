@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 09:47:19 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 19:13:54 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+void				ft_ld(long n);
 void				ft_puthex(unsigned long long n);
 void				ft_putlhex(unsigned long long n);
 void				ft_putoct(unsigned long long n);
