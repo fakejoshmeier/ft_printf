@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 19:22:45 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 20:12:26 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	l_lhex_cast(va_list arg, t_all *f)
 	char			*prec_pad;
 	char			*width_pad;
 	char			*prefix;
-	unsigned char	output;
+	unsigned long	output;
 
 	output = (unsigned long)va_arg(arg, void*);
 	prec_pad = prec_parse((unsigned long long)output, f, 16);
@@ -135,7 +135,7 @@ void	l_uint_cast(va_list arg, t_all *f)
 	char			*prefix;
 	unsigned long	output;
 
-	output = (unsigned char)va_arg(arg, void*);
+	output = (unsigned long)va_arg(arg, void*);
 	prec_pad = prec_parse((unsigned long)output, f, 10);
 	width_pad = width_parse((unsigned long)output, f, 10);
 	prefix = prefix_parse((unsigned int)output, 10, 0, f);
