@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 19:47:02 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 20:06:28 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 20:22:11 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,25 @@ void	putadr(unsigned long n, t_all *f)
 	}
 }
 
-void	address(va_list args, t_all *f)
+void	address(va_list arg, t_all *f)
 {
 	void			*output;
 	unsigned long	adr;
 
-	output = va_arg(args, void*);
+	output = va_arg(arg, void*);
 	adr = (unsigned long)(output);
 	write(1, "0x", 2);
 	f->adr += 2;
 	putadr(adr, f);
 }
 
-void	ntame(t_all *f)
+void	ntame(va_list arg, t_all *f)
 {
+	int		skip;
+
+	skip = va_arg(arg, int);
 	ft_putnbr(f->adr);
 	f->adr += (ft_numlen(f->adr, 10));
+	f->adr += (ft_numlen(skip, 10));
+	&f->adr = &skip;
 }
