@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 20:37:37 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 20:41:08 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	l_int_cast(va_list arg, t_all *f)
 	width_pad = sign_width_parse(output, f);
 	if (f->dash == 1)
 	{
-//		ft_putstr(prefix);
+		ft_putstr(prefix);
 		ft_putstr(prec_pad);
 		ft_ld((long)output);
 		ft_putstr(width_pad);
@@ -33,7 +33,7 @@ void	l_int_cast(va_list arg, t_all *f)
 	else
 	{
 		f->zero == 0 ? ft_putstr(width_pad) : 0;
-//		ft_putstr(prefix);
+		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
 		ft_ld((long)output);

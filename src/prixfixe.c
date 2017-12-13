@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 16:56:38 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 18:43:18 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 20:44:43 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,22 @@ char	*sign_prefix_parse(int output, int base, int caps, t_all *f)
 {
 	char	*new;
 
-	if (f->spess == 1 || f->plus == 1 || (output < 0))
+	if (f->spess == 1 && output >= 0)
 	{
 		new = ft_strnew(1);
-		f->spess == 1 && output >= 0 ? new[0] = ' ' : 0;
-		f->plus == 1 && output >= 0 ? new[0] = '+' : 0;
-		output < 0 ? new[0] = '-' : 0;
+		new[0] = ' ';
+		f->adr += 1;
+	}
+	else if (f->plus == 1 && output >= 0)
+	{
+		new = ft_strnew(1);
+		new[0] = '+';
+		f->adr += 1;
+	}
+	else if (output < 0)
+	{
+		new = ft_strnew(1);
+		new[0] = '-';
 		f->adr += 1;
 	}
 	else
