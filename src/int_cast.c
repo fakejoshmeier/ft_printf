@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 18:22:21 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 21:08:31 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	oct_cast(va_list arg, t_all *f)
 	}
 	else
 	{
-		f->zero == 0 ? ft_putstr(width_pad) : 0;
+		(f->zero == 0 || prec_flag == 1) ? ft_putstr(width_pad) : 0;
 		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
