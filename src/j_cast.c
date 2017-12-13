@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 10:36:04 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 18:24:43 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	j_int_cast(va_list arg, t_all *f)
 	output = (intmax_t)va_arg(arg, void*);
 	prec_pad = sign_prec_parse(output, f);
 	width_pad = sign_width_parse(output, f);
-	prefix = prefix_parse((int)output, 10, 0, f);
+	prefix = sign_prefix_parse((int)output, 10, 0, f);
 	if (f->dash == 1)
 	{
 		ft_putstr(prefix);
@@ -49,9 +49,9 @@ void	j_oct_cast(va_list arg, t_all *f)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	prec_pad = prec_parse((unsigned long long)output, f, 8);
-	width_pad = width_parse((unsigned long long)output, f, 8);
-	prefix = prefix_parse((int)output, 8, 0, f);
+	prec_pad = prec_parse(output, f, 8);
+	width_pad = width_parse(output, f, 8);
+	prefix = prefix_parse((unsigned int)output, 8, 0, f);
 	if (f->dash == 1)
 	{
 		ft_putstr(prefix);
@@ -78,9 +78,9 @@ void	j_hex_cast(va_list arg, t_all *f)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	prec_pad = prec_parse((unsigned long long)output, f, 16);
-	width_pad = width_parse((unsigned long long)output, f, 16);
-	prefix = prefix_parse((int)output, 16, 1, f);
+	prec_pad = prec_parse(output, f, 16);
+	width_pad = width_parse(output, f, 16);
+	prefix = prefix_parse((unsigned int)output, 16, 1, f);
 	if (f->dash == 1)
 	{
 		ft_putstr(prefix);
@@ -107,9 +107,9 @@ void	j_lhex_cast(va_list arg, t_all *f)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	prec_pad = prec_parse((unsigned long long)output, f, 16);
-	width_pad = width_parse((unsigned long long)output, f, 16);
-	prefix = prefix_parse((int)output, 16, 0, f);
+	prec_pad = prec_parse(output, f, 16);
+	width_pad = width_parse(output, f, 16);
+	prefix = prefix_parse((unsigned int)output, 16, 0, f);
 	if (f->dash == 1)
 	{
 		ft_putstr(prefix);
@@ -136,14 +136,14 @@ void	j_uint_cast(va_list arg, t_all *f)
 	uintmax_t	output;
 
 	output = (uintmax_t)va_arg(arg, void*);
-	prec_pad = prec_parse((unsigned long long)output, f, 10);
-	width_pad = width_parse((unsigned long long)output, f, 10);
-	prefix = prefix_parse((int)output, 10, 0, f);
+	prec_pad = prec_parse(output, f, 10);
+	width_pad = width_parse(output, f, 10);
+	prefix = prefix_parse((unsigned int)output, 10, 0, f);
 	if (f->dash == 1)
 	{
 		ft_putstr(prefix);
 		ft_putstr(prec_pad);
-		ft_putull(output);
+		ft_putull((unsigned long long)output);
 		ft_putstr(width_pad);
 	}
 	else

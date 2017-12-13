@@ -6,41 +6,11 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 05:10:43 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 16:54:18 by jmeier           ###   ########.fr       */
+/*   Updated: 2017/12/12 18:13:42 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*prefix_parse(int output, int base, int caps, t_all *f)
-{
-	char	*new;
-
-	if (base == 16 && output != 0 && f->hash == 1)
-	{
-		new = ft_strnew(2);
-		new[0] = '0';
-		new[1] = caps == 1 ? 'X' : 'x';
-		f->adr += 2;
-	}
-	else if (base == 8 && output != 0 && f->hash == 1)
-	{
-		new = ft_strnew(1);
-		new[0] = '0';
-		f->adr += 1;
-	}
-	else if (f->spess == 1 || f->plus == 1 || (output < 0 && f->hash == 0))
-	{
-		new = ft_strnew(1);
-		f->spess == 1 && output >= 0 ? new[0] = ' ' : 0;
-		f->plus == 1 && output >= 0 ? new[0] = '+' : 0;
-		output < 0 ? new[0] = '-' : 0;
-		f->adr += 1;
-	}
-	else
-		new = NULL;
-	return (new);
-}
 
 char	*sign_width_parse(long long output, t_all *f)
 {
@@ -96,7 +66,7 @@ char	*sign_prec_parse(long long output, t_all *f)
 	if (f->prec_flag == 0)
 		return (NULL);
 	g = ft_longlonglen(output, 10);
-	f->adr += f->prec > g ? f->prec : g;
+	f->adr += f->prec < g ? f->prec : g;
 	if (f->prec > g)
 	{
 		i = f->prec - g;
@@ -116,7 +86,7 @@ char	*prec_parse(unsigned long long output, t_all *f, int b)
 	if (f->prec_flag == 0)
 		return (NULL);
 	g = ft_ulonglonglen(output, b);
-	f->adr += f->prec > g ? f->prec : g;
+	f->adr += f->prec < g ? f->prec : g;
 	if (f->prec > g)
 	{
 		i = f->prec - g;
