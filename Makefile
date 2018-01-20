@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2017/12/12 20:07:51 by jmeier           ###   ########.fr        #
+#    Updated: 2018/01/19 16:56:35 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ $(NAME):$(O_SRC)
 	@echo Compiling $@ library...
 	@ar rcs $@ $(O_SRC)
 	@ranlib $(NAME)
+	@echo ...Successfully compiled $@ library
 
 $(O_LOC)%.o: $(C_LOC)%.c
 	@echo Re-compiling $< file...
