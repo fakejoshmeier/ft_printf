@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2018/02/07 15:50:58 by jmeier           ###   ########.fr        #
+#    Updated: 2018/02/07 16:23:44 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,8 +61,8 @@ $(NAME): $(O_SRC)
 	@ar rcs $@ $(O_SRC)
 	@/bin/echo -n "オラ"
 	@ranlib $(NAME)
-	@/bin/echo -n "ーー！」"
-	@echo ...Successfully compiled $@ library
+	@/bin/echo -n "ァァ！」"
+	@echo "\n...やれやれだぜ。"
 
 $(O_LOC)%.o:$(C_LOC)%.c
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
