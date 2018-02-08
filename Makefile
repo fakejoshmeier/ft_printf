@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2018/02/07 16:23:44 by jmeier           ###   ########.fr        #
+#    Updated: 2018/02/07 19:10:59 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,14 +74,12 @@ $(O_LOC)%.o: $(LIB_LOC)%.c
 
 
 clean:
-	@echo Cleaning .o files ...
+	@echo "スタープラチナ！"
 	@/bin/rm -rf $(O_SRC)
-	@echo ... Successfully removed .o files
 
 fclean: clean
-	@echo Cleaning $(NAME) ...
 	@/bin/rm -f $(NAME)
-	@echo ...Successfully removed $(NAME)
+	@echo "裁くのは、俺の スタンドだ！"
 
 re: fclean all
 
