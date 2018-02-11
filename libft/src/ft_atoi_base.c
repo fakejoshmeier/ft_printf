@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/10 23:26:57 by jmeier            #+#    #+#             */
-/*   Updated: 2018/02/11 00:00:43 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/02/11 00:22:04 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	convert_and_check_nb(char c, int base)
 		ret = c - 97 + 10;
 	else if (c >= 'A' && c <= 'Z')
 		ret = c - 65 + 10;
-	if (ret < base && result)
+	if (ret < base && ret)
 		return (ret);
 	return (-1);
 }
@@ -54,7 +54,7 @@ int			ft_atoi_base(char *nb, int base)
 	l = len(nb, base) - 1;
 	while (*nb && l >= 0 && convert_and_check_nb(*nb, base) != -1)
 	{
-		ret += convert_and_check_nb(*nb, base) * ft_power(base, l);
+		ret += convert_and_check_nb(*nb, base) * ft_pow(base, l);
 		++nb;
 		--l;
 	}
