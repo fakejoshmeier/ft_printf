@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 02:41:40 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 12:38:15 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/02/16 16:22:22 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	percent(t_all *f)
 
 void	parse_width(const char *str, int *i, va_list arg, t_all *f)
 {
-	if (!(ft_isdigit(str[*i])))
+	if (!(ft_isdigit(str[*i])) && str[*i] != '*')
 		return ;
 	f->wid_flag = 1;
 	if (str[*i] == '*')
