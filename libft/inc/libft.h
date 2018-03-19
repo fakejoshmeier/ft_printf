@@ -36,6 +36,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+void				ft_freearr(char **array);
+int					ft_strchr_ind(const char *s, int c);
 void				ft_ld(long n);
 void				ft_puthex(unsigned long long n);
 void				ft_putlhex(unsigned long long n);
