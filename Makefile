@@ -33,7 +33,7 @@ LIBFT = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_isvalue ft_numlen ft_putchars ft_putnbrf ft_unumlen ft_longlen \
 		ft_ulonglen ft_ulonglonglen ft_longlonglen ft_putstrn ft_putull \
 		ft_puthex ft_putlhex ft_putoct ft_ld ft_atoi_base ft_pow \
-		ft_strchr_ind ft_freearr\
+		ft_strchr_ind ft_freearr ft_stricmp\
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))

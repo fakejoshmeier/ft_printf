@@ -36,6 +36,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_stricmp(char const *a, char const *b);
 void				ft_freearr(char **array);
 int					ft_strchr_ind(const char *s, int c);
 void				ft_ld(long n);
