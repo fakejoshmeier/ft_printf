@@ -6,11 +6,11 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/10 22:22:28 by jmeier            #+#    #+#             */
-/*   Updated: 2018/02/10 22:23:39 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/03/23 02:21:22 by josh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fdf.h>
+#include <libft.h>
 
 void	ft_freearr(char **array)
 {
