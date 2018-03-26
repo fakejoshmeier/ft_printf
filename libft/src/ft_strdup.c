@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/18 14:40:19 by jmeier            #+#    #+#             */
-/*   Updated: 2018/03/25 23:14:37 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/03/25 23:16:09 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_strdup(const char *src)
 	char	*newstr;
 	int		j;
 
-	j = 0;
+	j = -1;
 	if (!(newstr = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1))))
 		return (NULL);
-	while (*str != '\0')
-		newstr[j++] = *str++;
+	while (src[++j] != '\0')
+		newstr[j] = src[j];
 	newstr[j] = '\0';
 	return (newstr);
 }
