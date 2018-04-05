@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2018/03/27 23:20:24 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/04/05 02:22:57 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+double				ft_sqroot(double square);
 int					ft_count_words(char *str, char c);
 int					ft_stricmp(char const *a, char const *b);
 void				ft_freearr(char **array);
