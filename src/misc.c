@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 02:41:40 by jmeier            #+#    #+#             */
-/*   Updated: 2018/05/22 03:50:17 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/05/22 03:51:53 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ void	parse_prec(const char *str, int *i, va_list arg, t_all *f)
 		return ;
 	f->prec_flag = 1;
 	*i += 1;
-//	if (str[*i] == '*')
-//	{
-//		f->prec = va_arg(arg, int);
-//		*i += 1;
-//		return ;
-//	}
+	if (str[*i] == '*')
+	{
+		f->prec = va_arg(arg, int);
+		*i += 1;
+		return ;
+	}
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
 		f->prec = f->prec * 10 + str[*i] - '0';
