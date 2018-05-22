@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 02:41:40 by jmeier            #+#    #+#             */
-/*   Updated: 2018/05/22 03:49:20 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/05/22 03:50:17 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	parse_width(const char *str, int *i, va_list arg, t_all *f)
 	if (!(ft_isdigit(str[*i])) && str[*i] != '*')
 		return ;
 	f->wid_flag = 1;
-	if (str[*i] == '*')
-	{
-		f->width = va_arg(arg, int);
-		*i += 1;
-		return ;
-	}
+//	if (str[*i] == '*')
+//	{
+//		f->width = va_arg(arg, int);
+//		*i += 1;
+//		return ;
+//	}
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
 		f->width = f->width * 10 + str[*i] - '0';
