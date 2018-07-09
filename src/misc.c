@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 02:41:40 by jmeier            #+#    #+#             */
-/*   Updated: 2018/05/22 04:00:49 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/02/16 16:22:22 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ void	parse_width(const char *str, int *i, va_list arg, t_all *f)
 	f->wid_flag = 1;
 	if (str[*i] == '*')
 	{
-	//	f->width = (int)va_arg(arg, int);
-		int wid = va_arg(arg, int);
-	//	printf("wid = %i\n", wid);
-		f->width = wid;
+		f->width = va_arg(arg, int);
 		*i += 1;
 		return ;
 	}
