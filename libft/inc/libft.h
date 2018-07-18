@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2018/07/08 20:19:32 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/07/18 00:58:50 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # define MATCH(a,b) if (a) b
 # define OR(a,b) else if (a) b
 # define OTHERWISE(a) else a
+# define ANY2(x,a,b) (x == a || x == b)
+# define ANY3(x,a,b,c) (x == a || x == b || x == c)
+# define ANY4(x,a,b,c,d) (x == a || x == b || x == c || x == d)
+# define ANY5(x,a,b,c,d,e) (x == a || x == b || x == c || x == d || x == e)
 
 typedef struct		s_block
 {
