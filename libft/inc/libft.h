@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2018/07/18 00:58:50 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/07/27 03:42:07 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 # define BUFF_SIZE 4096
 # define ASSERT(a) if (!(a)) return (-1);
 # define NULL_GUARD(a) if (!(a)) return (NULL);
@@ -65,6 +66,7 @@ void				ft_putwstr(wchar_t *str);
 void				*ft_realloc(void *ptr, size_t new_size);
 void				ft_free(void *ptr);
 int					get_next_line(const int fd, char **line);
+size_t				get_file_contents(char *filename, char **fill);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
@@ -126,6 +128,7 @@ char				*ft_strdup(const char *src);
 int					ft_strequ(char const *s1, char const *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+char				*ft_strfjoin(char *s1, char const *s2);
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 int					ft_strlen(const char *s);
