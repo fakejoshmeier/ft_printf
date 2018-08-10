@@ -23,3 +23,5 @@ Precision and width are handled, as is `%%`.  Wildcard input `*` is implemented 
 
 ## Usage
 Run make and the `libftprintf.a` library will be created.  Include the library in whatever program is being compiled.  The function can be called with `ft_printf()` and used as the regular printf command.
+#### Note
+I am updating this repository with new functions to be used in my library, found in the directory `libft`.
