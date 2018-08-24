@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2018/08/23 22:59:36 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/08/24 04:44:44 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int					ft_isprint(int c);
 int					ft_isspace(char c);
 int					ft_isascii(int c);
 int					ft_isvalue(char c);
+int					ft_ishex(char c);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int n, int base);
 void				ft_lstadd(t_list **alst, t_list *new);
