@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2018/08/24 04:44:44 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/08/25 03:46:29 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ANY3(x,a,b,c) (x == a || x == b || x == c)
 # define ANY4(x,a,b,c,d) (x == a || x == b || x == c || x == d)
 # define ANY5(x,a,b,c,d,e) (x == a || x == b || x == c || x == d || x == e)
+# define SE(a, b) ft_strequ(a, b)
 
 typedef struct		s_block
 {
@@ -48,6 +49,8 @@ double				ft_sqroot(double square);
 int					ft_count_words(char *str, char c);
 int					ft_stricmp(char const *a, char const *b);
 void				ft_freearr(char **array);
+void				ft_strtoupper(char **str);
+void				ft_strtolower(char **str);
 int					ft_strchr_ind(const char *s, int c);
 void				ft_ld(long n);
 void				ft_puthex(unsigned long long n);
@@ -127,6 +130,7 @@ char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strctrim(const char *s, char c);
 void				ft_strdel(char **as);
 char				*ft_strdup(const char *src);
+char				*ft_strndup(const char *src, int len);
 int					ft_strequ(char const *s1, char const *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
