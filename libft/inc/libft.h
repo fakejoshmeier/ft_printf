@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2018/08/25 03:46:29 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/08/30 10:47:04 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define ANY4(x,a,b,c,d) (x == a || x == b || x == c || x == d)
 # define ANY5(x,a,b,c,d,e) (x == a || x == b || x == c || x == d || x == e)
 # define SE(a, b) ft_strequ(a, b)
+# define MAX(a, b) (a > b ? a : b)
+# define MIN(a, b) (a < b ? a : b)
 
 typedef struct		s_block
 {
@@ -125,6 +127,7 @@ void				ft_putstr_fd(char const *s, int fd);
 char				*ft_strcat(char *dst, const char *src);
 char				*ft_strchr(const char *s, int c);
 void				ft_strclr(char *s);
+char				*ft_strclean(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strctrim(const char *s, char c);

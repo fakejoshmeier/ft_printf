@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_strclean.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 14:48:22 by jmeier            #+#    #+#             */
-/*   Updated: 2018/09/01 13:54:56 by jmeier           ###   ########.fr       */
+/*   Created: 2018/08/30 10:34:29 by jmeier            #+#    #+#             */
+/*   Updated: 2018/08/30 10:43:59 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	*ft_realloc(void *ptr, size_t new_size)
+char		*ft_strclean(char *s)
 {
-	void	*new;
+	int		i;
+	int		flag;
 
-	new = (void *)ft_memalloc(new_size);
-	if (new == NULL)
+	if (!s)
 		return (NULL);
-	if (!ptr)
-		return (new);
-	new = ft_memcpy(new, ptr, new_size);
-	free(ptr);
-	ptr = NULL;
-	return (new);
+	i = 0;
+	flag = 0;
+	while (s[i + flag])
+	{
+		while (s[i + flag] && ft_isspace(s[i + flag]))
+			++flag;
+		if ((s[i] = s[i + flag]))
+			++i;
+	}
+	s[i] = '\0';
+	return (s);
 }
