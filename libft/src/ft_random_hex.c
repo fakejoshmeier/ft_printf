@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 16:25:23 by jmeier            #+#    #+#             */
-/*   Updated: 2018/10/22 19:32:28 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/10/22 19:35:24 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char		*ft_random_hex(int size)
 		res = read(fd, buf, buf_size);
 		if (res < buf_size || (buf[buf_size] = 0))
 			return (close(fd) == 0 ? NULL : NULL);
-		if (!(ret = str_to_hex(buf)))
+		if (!(ret = ft_str_to_hex(buf)))
 			return (close(fd) == 0 ? NULL : NULL);
 	}
 	close(fd);
