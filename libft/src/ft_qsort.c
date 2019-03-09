@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 16:03:49 by jmeier            #+#    #+#             */
-/*   Updated: 2019/03/08 16:07:27 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/03/08 16:22:07 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void		ft_qsort(void *array[], int size,
 	sort(array, 0, size - 1, comp);
 }
 
-int		ft_compare_str(const void *a, const void *b)
+int			ft_compare_str(const void *a, const void *b)
 {
 	return (ft_strcmp(a, b) > 0);
 }
 
-int		ft_compare_int(const void *a, const void *b)
+int			ft_compare_int(const void *a, const void *b)
 {
 	return (*((int*)a) > *((int*)b));
 }
