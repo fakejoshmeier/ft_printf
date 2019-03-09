@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/03/06 16:23:52 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/03/08 16:08:36 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,10 @@ int					ft_atoi_base(char *nb, int base);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				ft_error(char *str);
+void				ft_qsort(void *arr[], int size, int (*comp)(const void *, const void*));
+int					ft_compare_str(const void *a, const void *b);
+int					ft_compare_int(const void *a, const void *b);
+
 
 /*
 ** Hashmap
@@ -176,6 +180,8 @@ int					ft_strchr_ind(const char *s, int c);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
+void				ft_strtoupper(char **s);
+void				ft_strtolower(char **s);
 void				ft_strappend(char **src, char *add);
 
 /*
