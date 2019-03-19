@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/03/08 16:21:23 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/03/19 07:14:13 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,14 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_dll
+{
+	void			*content;
+	size_t			content_size;
+	struct s_dll	*prev;
+	struct s_dll	*next;
+}					t_dll;
 
 typedef struct		s_map
 {
@@ -213,6 +221,10 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				*ft_lstpush(t_list **lst, void *content, size_t size);
 void				*ft_lstpop(t_list **lst);
+t_dll				*ft_dllnew(void const *content, size_t content_size);
+void				ft_dlldel(t_dll **dll, void (*free_fn)(void *, size_t));
+void				ft_dlladd(t_dll **dll, t_dll *new);
+
 
 /*
 ** Printing and length
