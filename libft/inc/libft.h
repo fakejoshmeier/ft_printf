@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/03/19 07:14:13 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/03/21 14:45:44 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,7 @@ char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strctrim(const char *s, char c);
 void				ft_strdel(char **as);
 char				*ft_strdup(const char *src);
+char				*ft_strndup(const char *src, int len);
 int					ft_strequ(char const *s1, char const *s2);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
