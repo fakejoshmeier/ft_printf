@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/03/21 15:53:19 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/03/21 17:37:05 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define ANY4(x,a,b,c,d) (x == a || x == b || x == c || x == d)
 # define ANY5(x,a,b,c,d,e) (x == a || x == b || x == c || x == d || x == e)
 # define SE(a, b) ft_strequ(a, b)
+# define LEN(a) ft_strlen(a)
 # define MAX(a, b) (a > b ? a : b)
 # define MIN(a, b) (a < b ? a : b)
 
