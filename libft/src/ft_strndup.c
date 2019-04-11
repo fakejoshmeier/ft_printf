@@ -17,17 +17,15 @@ char	*ft_strndup(const char *src, int len)
 	char	*ret;
 	int		i;
 
-	i = -1;
+	i = 0;
 	NULL_GUARD(ret = ft_strnew(len));
-	while (++i < len)
+	while (i < len)
 	{
-		if (src[i] == '\0')
-		{
-			free(ret);
-			ret = ft_strdup(src);
-			return (ret);
-		}
-		ret[i] = src[i];
+		*ret++ = *src++;
+		if (*src == '\0')
+			break ;
+		++i;
 	}
+	*ret = '\0';
 	return (ret);
 }
