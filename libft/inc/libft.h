@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/04/10 23:13:53 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/04/11 03:05:30 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,7 @@ void				ft_strtolower(char **s);
 void				ft_strappend(char **src, char *add);
 char				*ft_strsplice(char **splice, char *splice_adr, char *insert);
 char				*ft_strfsplice(char **splice, char *splice_adr, char *insert);
+char				*ft_strslice(const char *src, int idx, int len);
 
 /*
 ** Memory
