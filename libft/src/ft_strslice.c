@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 23:29:37 by jmeier            #+#    #+#             */
-/*   Updated: 2019/04/10 23:29:47 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/04/11 20:58:51 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strslice(const char *src, int idx, int len)
 	int		i;
 
 	src_len = ft_strlen(src);
-	if (idx + len > src_len)
+	if (idx + len > src_len || len == 0)
 		return (NULL);
 	ret = (char *)malloc(sizeof(char) * len + 1);
 	i = 0;
