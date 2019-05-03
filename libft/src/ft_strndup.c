@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 23:22:42 by jmeier            #+#    #+#             */
-/*   Updated: 2018/08/24 23:31:07 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/04/17 23:01:07 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ char	*ft_strndup(const char *src, int len)
 	NULL_GUARD(ret = ft_strnew(len));
 	while (i < len)
 	{
-		*ret++ = *src++;
+		ret[i++] = *src++;
 		if (*src == '\0')
 			break ;
-		++i;
 	}
-	*ret = '\0';
+	ret[i] = '\0';
 	return (ret);
 }

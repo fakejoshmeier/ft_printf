@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
+#    By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2019/03/21 15:53:39 by jmeier           ###   ########.fr        #
+#    Updated: 2019/04/25 00:08:57 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ LIBFT = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_strstr \
 		ft_strfjoin get_file_contents ft_map_hash ft_map0 ft_map1 ft_map_hash \
 		ft_lstpush ft_lstpop ft_stack ft_error ft_strfjoin get_file_contents \
 		ft_atoi_arr ft_ishex ft_strtoupper ft_strndup ft_strtolower \
-		ft_strclean ft_random_hex ft_strappend ft_qsort ft_strrchr_ind
+		ft_strclean ft_random_hex ft_strappend ft_qsort ft_strrchr_ind \
+		ft_strslice ft_strsplice
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FILES))

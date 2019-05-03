@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/04/11 03:05:30 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/05/02 22:03:42 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 # define BUFF_SIZE 4096
 # define ASSERT(a) if (!(a)) return (-1);
@@ -44,6 +45,8 @@
 # define MAG "\033[35m"
 # define CYA "\033[36m"
 # define WHI "\033[37m"
+
+# define NL write(1, "\n", 1)
 
 typedef struct		s_node
 {
@@ -213,6 +216,7 @@ void				*ft_memset(void *s, int c, size_t n);
 char				**ft_arrdup(char **arr);
 void				ft_freearr(char **array);
 void				ft_free(void *ptr);
+void				ft_freek(void **ptr);
 
 /*
 ** Linked Lists
