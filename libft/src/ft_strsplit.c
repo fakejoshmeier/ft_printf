@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/25 16:10:03 by jmeier            #+#    #+#             */
-/*   Updated: 2019/04/25 00:21:45 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/05/13 01:13:53 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static size_t	num_words(const char *str, char d)
 	return (num);
 }
 
-char		**ft_strsplit(char const *str, char c)
+char			**ft_strsplit(char const *str, char c)
 {
 	char		**split_words;
 	size_t		size;

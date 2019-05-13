@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/05/02 22:03:42 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/05/13 01:18:48 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,8 +196,10 @@ char				*ft_strtrim(char const *s);
 void				ft_strtoupper(char **s);
 void				ft_strtolower(char **s);
 void				ft_strappend(char **src, char *add);
-char				*ft_strsplice(char **splice, char *splice_adr, char *insert);
-char				*ft_strfsplice(char **splice, char *splice_adr, char *insert);
+char				*ft_strsplice(char **splice, char *splice_adr,
+					char *insert);
+char				*ft_strfsplice(char **splice, char *splice_adr,
+					char *insert);
 char				*ft_strslice(const char *src, int idx, int len);
 
 /*
@@ -234,7 +236,6 @@ void				*ft_lstpop(t_list **lst);
 t_dll				*ft_dllnew(void const *content, size_t content_size);
 void				ft_dlldel(t_dll **dll, void (*free_fn)(void *, size_t));
 void				ft_dlladd(t_dll **dll, t_dll *new);
-
 
 /*
 ** Printing and length

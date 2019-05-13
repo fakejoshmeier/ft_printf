@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 23:29:37 by jmeier            #+#    #+#             */
-/*   Updated: 2019/05/02 16:11:15 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/05/13 01:13:28 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ char	*ft_strslice(const char *src, int idx, int len)
 			break ;
 		ret[i++] = src[idx++];
 	}
-	ret[i]= '\0';
+	ret[i] = '\0';
 	return (ret);
 }

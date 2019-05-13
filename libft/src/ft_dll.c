@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dll.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 06:53:54 by jmeier            #+#    #+#             */
-/*   Updated: 2019/03/19 07:14:13 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/05/13 01:18:01 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 t_dll	*ft_dllnew(void const *content, size_t content_size)
 {
 	t_dll	*tmp;
-	
+
 	if (!(tmp = (t_dll *)malloc(sizeof(t_dll))))
 		return (NULL);
 	if (!content)
@@ -29,7 +29,7 @@ t_dll	*ft_dllnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(tmp->content = malloc(content_size)));
+		if (!(tmp->content = malloc(content_size)))
 		{
 			free(tmp);
 			return (NULL);
