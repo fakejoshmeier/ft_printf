@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmeier <jmeier@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/05/02 22:03:42 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/05/27 22:49:51 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,7 @@ void				ft_freek(void **ptr);
 */
 
 void				ft_lstadd(t_list **alst, t_list *new);
+t_list				*ft_lstset(void const *content, size_t content_size);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 int					ft_lstnodecheck(t_list *l1, t_list *l2);
