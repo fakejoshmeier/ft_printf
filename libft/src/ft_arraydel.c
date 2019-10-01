@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_arraydel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 14:48:22 by jmeier            #+#    #+#             */
-/*   Updated: 2019/06/15 08:56:58 by jmeier           ###   ########.fr       */
+/*   Created: 2019/06/01 02:15:34 by jmeier            #+#    #+#             */
+/*   Updated: 2019/10/01 11:48:18 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_realloc(void *ptr, size_t new_size)
+int		ft_arrlen(char **arr)
 {
-	void	*new;
+	int		i;
 
-	new = (void *)ft_memalloc(new_size);
-	if (new == NULL)
+	i = 0;
+	while (*arr[i])
+		++i;
+	return (i);
+}
+
+char	**ft_arraydel(char ***array)
+{
+	int		i;
+
+	if (!array || !(*array))
 		return (NULL);
-	if (!ptr)
-		return (new);
-	new = ft_memcpy(new, ptr, new_size);
-	free(ptr);
-	ptr = NULL;
-	return (new);
+	i = -1;
+	while ((*array)[++i])
+	{
+		free((*array)[i]);
+		write(1, "FREE\n", 5);
+		(*array)[i] = NULL;
+	}
+	free(*array);
+	return ((*array = NULL));
 }

@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/05/27 22:49:51 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/01 11:49:04 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 # define BUFF_SIZE 4096
 # define ASSERT(a) if (!(a)) return (-1);
 # define NULL_GUARD(a) if (!(a)) return (NULL);
-# define MATCH(a,b) if (a) b
-# define OR(a,b) else if (a) b
+# define MATCH(a, b) if (a) b
+# define OR(a, b) else if (a) b
 # define OTHERWISE(a) else a
-# define ANY2(x,a,b) (x == a || x == b)
-# define ANY3(x,a,b,c) (x == a || x == b || x == c)
-# define ANY4(x,a,b,c,d) (x == a || x == b || x == c || x == d)
-# define ANY5(x,a,b,c,d,e) (x == a || x == b || x == c || x == d || x == e)
+# define ANY2(x, a, b) (x == a || x == b)
+# define ANY3(x, a, b, c) (x == a || x == b || x == c)
+# define ANY4(x, a, b, c, d) (x == a || x == b || x == c || x == d)
+# define ANY5(x, a, b, c, d, e) (x == a || x == b || x == c || x == d || x == e)
 # define SE(a, b) ft_strequ(a, b)
 # define LEN(a) ft_strlen(a)
 # define MAX(a, b) (a > b ? a : b)
@@ -217,6 +217,7 @@ char				**ft_arrdup(char **arr);
 void				ft_freearr(char **array);
 void				ft_free(void *ptr);
 void				ft_freek(void **ptr);
+char				**ft_arraydel(char ***array);
 
 /*
 ** Linked Lists
@@ -241,6 +242,7 @@ void				ft_dlladd(t_dll **dll, t_dll *new);
 ** Printing and length
 */
 
+int					ft_arrlen(char **arr);
 void				ft_ld(long n);
 void				ft_puthex(unsigned long long n);
 void				ft_putlhex(unsigned long long n);
