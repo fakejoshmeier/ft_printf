@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/10/01 11:49:04 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/08 22:28:46 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,7 @@ void				ft_freearr(char **array);
 void				ft_free(void *ptr);
 void				ft_freek(void **ptr);
 char				**ft_arraydel(char ***array);
+char				**ft_arr_add(char **arr, char *add);
 
 /*
 ** Linked Lists
