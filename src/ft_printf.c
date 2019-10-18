@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:20:44 by jmeier            #+#    #+#             */
-/*   Updated: 2018/02/16 16:22:04 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 18:53:20 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,45 +51,19 @@ void	suite(const char *str, int *i, va_list arg, t_all *f)
 void	parse_escape(int *i, const char *str, t_all *f)
 {
 	*i += 1;
-	str[*i] == 'a' ? ft_putchar('\a') : 0;
-	str[*i] == '\\' ? ft_putchar('\\') : 0;
-	str[*i] == 'b' ? ft_putchar('\b') : 0;
-	str[*i] == 'r' ? ft_putchar('\r') : 0;
-	str[*i] == '"' ? ft_putchar('\"') : 0;
-	str[*i] == 'f' ? ft_putchar('\f') : 0;
-	str[*i] == 't' ? ft_putchar('\t') : 0;
-	str[*i] == 'n' ? ft_putchar('\n') : 0;
-	str[*i] == '0' ? ft_putchar('\0') : 0;
-	str[*i] == '\'' ? ft_putchar('\'') : 0;
-	str[*i] == 'v' ? ft_putchar('\v') : 0;
-	str[*i] == '?' ? ft_putchar('\?') : 0;
+	str[*i] == 'a' ? ft_putchar_fd('\a', f->fd) : 0;
+	str[*i] == '\\' ? ft_putchar_fd('\\', f->fd) : 0;
+	str[*i] == 'b' ? ft_putchar_fd('\b', f->fd) : 0;
+	str[*i] == 'r' ? ft_putchar_fd('\r', f->fd) : 0;
+	str[*i] == '"' ? ft_putchar_fd('\"', f->fd) : 0;
+	str[*i] == 'f' ? ft_putchar_fd('\f', f->fd) : 0;
+	str[*i] == 't' ? ft_putchar_fd('\t', f->fd) : 0;
+	str[*i] == 'n' ? ft_putchar_fd('\n', f->fd) : 0;
+	str[*i] == '0' ? ft_putchar_fd('\0', f->fd) : 0;
+	str[*i] == '\'' ? ft_putchar_fd('\'', f->fd) : 0;
+	str[*i] == 'v' ? ft_putchar_fd('\v', f->fd) : 0;
+	str[*i] == '?' ? ft_putchar_fd('\?', f->fd) : 0;
 	f->adr += 1;
-}
-
-void	parse_flags(va_list arg, int *i, const char *str, t_all *f)
-{
-	str[*i] == 'd' ? int_cast(arg, f) : 0;
-	str[*i] == 'i' ? int_cast(arg, f) : 0;
-	str[*i] == 'o' ? oct_cast(arg, f) : 0;
-	str[*i] == 'x' ? lhex_cast(arg, f) : 0;
-	str[*i] == 'X' ? hex_cast(arg, f) : 0;
-	str[*i] == 'u' ? uint_cast(arg, f) : 0;
-	str[*i] == 'c' ? char_cast(arg, f) : 0;
-	str[*i] == 's' ? str_cast(arg, f) : 0;
-	str[*i] == '%' ? percent(f) : 0;
-	str[*i] == 'j' ? parse_jflag(arg, i, str, f) : 0;
-	str[*i] == 'z' ? parse_zflag(arg, i, str, f) : 0;
-	str[*i] == 'p' ? address(arg, f) : 0;
-	(str[*i] == 'h' && str[*i + 1] != 'h') ? parse_hflag(arg, i, str, f) : 0;
-	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i, str, f) : 0;
-	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i, str, f) : 0;
-	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i, str, f) : 0;
-	str[*i] == 'O' ? l_oct_cast(arg, f) : 0;
-	str[*i] == 'D' ? l_int_cast(arg, f) : 0;
-	str[*i] == 'U' ? l_uint_cast(arg, f) : 0;
-	str[*i] == 'C' ? elsie_cast(arg, f) : 0;
-	str[*i] == 'S' ? loss_cast(arg, f) : 0;
-	str[*i] == 'n' ? ntame(arg, f) : 0;
 }
 
 int		ft_printf(const char *format, ...)
@@ -102,6 +76,7 @@ int		ft_printf(const char *format, ...)
 	va_start(arg, format);
 	pos = -1;
 	f = (t_all *)ft_memalloc(sizeof(t_all));
+	f->fd = STDOUT_FILENO;
 	while (format[++pos])
 	{
 		if (format[pos] == '%')
@@ -110,7 +85,35 @@ int		ft_printf(const char *format, ...)
 			parse_escape(&pos, format, f);
 		else
 		{
-			ft_putchar(format[pos]);
+			ft_putchar_fd(format[pos], f->fd);
+			f->adr += 1;
+		}
+	}
+	free(f);
+	va_end(arg);
+	return (0);
+}
+
+int		ft_fprintf(int fd, const char *format, ...)
+{
+	va_list	arg;
+	t_all	*f;
+	int		pos;
+
+	ASSERT(format);
+	va_start(arg, format);
+	pos = -1;
+	f = (t_all *)ft_memalloc(sizeof(t_all));
+	f->fd = fd;
+	while (format[++pos])
+	{
+		if (format[pos] == '%')
+			suite(format, &pos, arg, f);
+		else if (format[pos] == '\\')
+			parse_escape(&pos, format, f);
+		else
+		{
+			ft_putchar_fd(format[pos], f->fd);
 			f->adr += 1;
 		}
 	}

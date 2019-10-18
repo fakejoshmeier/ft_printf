@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 19:47:02 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 20:24:52 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 17:28:23 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	putadr(unsigned long n, t_all *f)
 	else if (n < 10)
 	{
 		f->adr += 1;
-		ft_putchar(n + '0');
+		ft_putchar_fd(n + '0', f->fd);
 	}
 	else
 	{
-		n == 10 ? ft_putchar('a') : 0;
-		n == 11 ? ft_putchar('b') : 0;
-		n == 12 ? ft_putchar('c') : 0;
-		n == 13 ? ft_putchar('d') : 0;
-		n == 14 ? ft_putchar('e') : 0;
-		n == 15 ? ft_putchar('f') : 0;
+		n == 10 ? ft_putchar_fd('a', f->fd) : 0;
+		n == 11 ? ft_putchar_fd('b', f->fd) : 0;
+		n == 12 ? ft_putchar_fd('c', f->fd) : 0;
+		n == 13 ? ft_putchar_fd('d', f->fd) : 0;
+		n == 14 ? ft_putchar_fd('e', f->fd) : 0;
+		n == 15 ? ft_putchar_fd('f', f->fd) : 0;
 		f->adr += 1;
 	}
 }
@@ -43,7 +43,7 @@ void	address(va_list arg, t_all *f)
 
 	output = va_arg(arg, void*);
 	adr = (unsigned long)(output);
-	write(1, "0x", 2);
+	write(f->fd, "0x", 2);
 	f->adr += 2;
 	putadr(adr, f);
 }
@@ -53,7 +53,7 @@ void	ntame(va_list arg, t_all *f)
 	int		skip;
 
 	skip = va_arg(arg, int);
-	ft_putnbr(f->adr);
+	ft_putnbr_fd(f->adr, f->fd);
 	f->adr += (ft_numlen(f->adr, 10));
 	f->adr += (ft_numlen(skip, 10));
 }

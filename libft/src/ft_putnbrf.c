@@ -6,27 +6,27 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 12:52:12 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/11 23:59:30 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 17:38:20 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbrf(int n)
+void	ft_putnbrf(int n, int fd)
 {
 	if (n < 0)
 		n = -n;
 	if (n == -2147483648)
 	{
-		ft_putchar('2');
+		ft_putchar_fd('2', fd);
 		n = n % 1000000000;
 		n = -n;
 	}
 	if (n >= 10)
 	{
-		ft_putnbrf(n / 10);
-		ft_putnbrf(n % 10);
+		ft_putnbrf(n / 10, fd);
+		ft_putnbrf(n % 10, fd);
 	}
 	else
-		ft_putchar(n + '0');
+		ft_putchar_fd(n + '0', fd);
 }

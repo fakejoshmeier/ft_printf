@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 02:01:55 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 21:31:31 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 17:10:46 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ wchar_t	*wchar_prec(wchar_t *output, t_all *f)
 	{
 		y = ft_strnew(len);
 		y = ft_strncpy(y, x, len);
-		ft_putstr(y);
+		ft_putstr_fd(y, f->fd);
 		free(y);
 		y = NULL;
 	}

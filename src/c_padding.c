@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 12:55:47 by jmeier            #+#    #+#             */
-/*   Updated: 2018/05/22 05:45:13 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 17:36:30 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	char_prec(char output, t_all *f)
 {
 	if (output != '\0' && f->prec >= 1)
-		write(1, &output, 1);
+		write(f->fd, &output, 1);
 	else
 		return ;
 }

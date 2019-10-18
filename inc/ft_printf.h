@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 19:21:30 by jmeier            #+#    #+#             */
-/*   Updated: 2018/05/22 03:55:14 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 18:49:25 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct	s_flags
 {
+	int			fd;
 	int			dash;
 	int			zero;
 	int			plus;
@@ -34,6 +35,8 @@ typedef struct	s_flags
 }				t_all;
 
 int				ft_printf(const char *format, ...);
+int				ft_fprintf(int fd, const char *format, ...);
+
 /*
 ** Parse functions
 */

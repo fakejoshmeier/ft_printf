@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:49:05 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 12:21:54 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 18:49:09 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,32 @@
 ** I'm doing.  Oh shit, I gotta call this the casting couch or something
 ** equally horrid.
 */
+
+void	parse_flags(va_list arg, int *i, const char *str, t_all *f)
+{
+	str[*i] == 'd' ? int_cast(arg, f) : 0;
+	str[*i] == 'i' ? int_cast(arg, f) : 0;
+	str[*i] == 'o' ? oct_cast(arg, f) : 0;
+	str[*i] == 'x' ? lhex_cast(arg, f) : 0;
+	str[*i] == 'X' ? hex_cast(arg, f) : 0;
+	str[*i] == 'u' ? uint_cast(arg, f) : 0;
+	str[*i] == 'c' ? char_cast(arg, f) : 0;
+	str[*i] == 's' ? str_cast(arg, f) : 0;
+	str[*i] == '%' ? percent(f) : 0;
+	str[*i] == 'j' ? parse_jflag(arg, i, str, f) : 0;
+	str[*i] == 'z' ? parse_zflag(arg, i, str, f) : 0;
+	str[*i] == 'p' ? address(arg, f) : 0;
+	(str[*i] == 'h' && str[*i + 1] != 'h') ? parse_hflag(arg, i, str, f) : 0;
+	(str[*i] == 'h' && str[*i + 1] == 'h') ? parse_hhflag(arg, i, str, f) : 0;
+	(str[*i] == 'l' && str[*i + 1] != 'l') ? parse_lflag(arg, i, str, f) : 0;
+	(str[*i] == 'l' && str[*i + 1] == 'l') ? parse_llflag(arg, i, str, f) : 0;
+	str[*i] == 'O' ? l_oct_cast(arg, f) : 0;
+	str[*i] == 'D' ? l_int_cast(arg, f) : 0;
+	str[*i] == 'U' ? l_uint_cast(arg, f) : 0;
+	str[*i] == 'C' ? elsie_cast(arg, f) : 0;
+	str[*i] == 'S' ? loss_cast(arg, f) : 0;
+	str[*i] == 'n' ? ntame(arg, f) : 0;
+}
 
 void	parse_hflag(va_list arg, int *i, const char *str, t_all *f)
 {

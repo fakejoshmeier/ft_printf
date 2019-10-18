@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2019/10/08 22:28:46 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/17 17:41:56 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,11 +245,11 @@ void				ft_dlladd(t_dll **dll, t_dll *new);
 
 int					ft_arrlen(char **arr);
 void				ft_ld(long n);
-void				ft_puthex(unsigned long long n);
-void				ft_putlhex(unsigned long long n);
-void				ft_putoct(unsigned long long n);
-void				ft_putull(unsigned long long n);
-void				ft_putnbrf(int n);
+void				ft_puthex(unsigned long long n, int fd);
+void				ft_putlhex(unsigned long long n, int fd);
+void				ft_putoct(unsigned long long n, int fd);
+void				ft_putull(unsigned long long n, int fd);
+void				ft_putnbrf(int n, int fd);
 int					ft_numlen(int n, int base);
 int					ft_unumlen(unsigned int n, int base);
 int					ft_longlen(long n, int base);
