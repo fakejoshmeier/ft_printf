@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 10:59:06 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 22:14:02 by jmeier           ###   ########.fr       */
+/*   Updated: 2019/10/18 16:53:44 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	z_int_cast(va_list arg, t_all *f)
 	{
 		ft_putstr(prefix);
 		ft_putstr(prec_pad);
-		ft_putnbrf((int)output);
+		ft_putnbrf((int)output, f->fd);
 		ft_putstr(width_pad);
 	}
 	else
@@ -36,7 +36,7 @@ void	z_int_cast(va_list arg, t_all *f)
 		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
-		ft_putnbrf((int)output);
+		ft_putnbrf((int)output, f->fd);
 	}
 	supa_free(prec_pad, width_pad, prefix);
 }
@@ -56,7 +56,7 @@ void	z_oct_cast(va_list arg, t_all *f)
 	{
 		ft_putstr(prefix);
 		ft_putstr(prec_pad);
-		ft_putoct(output);
+		ft_putoct(output, f->fd);
 		ft_putstr(width_pad);
 	}
 	else
@@ -65,7 +65,7 @@ void	z_oct_cast(va_list arg, t_all *f)
 		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
-		ft_putoct(output);
+		ft_putoct(output, f->fd);
 	}
 	supa_free(prec_pad, width_pad, prefix);
 }
@@ -85,7 +85,7 @@ void	z_hex_cast(va_list arg, t_all *f)
 	{
 		ft_putstr(prefix);
 		ft_putstr(prec_pad);
-		ft_puthex(output);
+		ft_puthex(output, f->fd);
 		ft_putstr(width_pad);
 	}
 	else
@@ -94,7 +94,7 @@ void	z_hex_cast(va_list arg, t_all *f)
 		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
-		ft_puthex(output);
+		ft_puthex(output, f->fd);
 	}
 	supa_free(prec_pad, width_pad, prefix);
 }
@@ -114,7 +114,7 @@ void	z_lhex_cast(va_list arg, t_all *f)
 	{
 		ft_putstr(prefix);
 		ft_putstr(prec_pad);
-		ft_putlhex(output);
+		ft_putlhex(output, f->fd);
 		ft_putstr(width_pad);
 	}
 	else
@@ -123,7 +123,7 @@ void	z_lhex_cast(va_list arg, t_all *f)
 		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
-		ft_putlhex(output);
+		ft_putlhex(output, f->fd);
 	}
 	supa_free(prec_pad, width_pad, prefix);
 }
@@ -143,7 +143,7 @@ void	z_uint_cast(va_list arg, t_all *f)
 	{
 		ft_putstr(prefix);
 		ft_putstr(prec_pad);
-		ft_putull((unsigned long long)output);
+		ft_putull((unsigned long long)output, f->fd);
 		ft_putstr(width_pad);
 	}
 	else
@@ -152,7 +152,7 @@ void	z_uint_cast(va_list arg, t_all *f)
 		ft_putstr(prefix);
 		f->zero == 1 && f->prec_flag == 0 ? ft_putstr(width_pad) : 0;
 		ft_putstr(prec_pad);
-		ft_putull((unsigned long long)output);
+		ft_putull((unsigned long long)output, f->fd);
 	}
 	supa_free(prec_pad, width_pad, prefix);
 }
